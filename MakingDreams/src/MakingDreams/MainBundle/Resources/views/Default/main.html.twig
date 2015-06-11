@@ -1,0 +1,51 @@
+{% extends '::base.html.twig' %}
+{% block menu %}
+    <li class="active"><a href="#home" class="scroll-link">Home</a></li>
+    <li><a href="#packages" class="scroll-link">Packages</a></li>
+    <li><a href="#priceTable" class="scroll-link">Price</a></li>
+    <li><a href="#aboutUs" class="scroll-link">About Us</a></li>
+    <li><a href="#portfolio" class="scroll-link">Gallery</a></li>
+    <li><a href="#contactUs" class="scroll-link">Contact Us</a></li>
+{% endblock %}
+{% block body %} 
+    <section id="home">
+        <div class="banner-container">
+            <!--   <img src="images/banner-bg.jpg" alt="banner" />-->
+            <div class="container banner-content">
+                <div id="da-slider" class="da-slider">
+                    <div class="da-slide">
+                        <h2>Travel Plans</h2>
+                        <p>Get your plans right away.. enjoy!!!</p>
+                        <a href="#" class="da-link">Read more</a>
+                        <div class="da-img"></div>
+                    </div>
+                    <div class="da-slide">
+                        <h2>Amazing Tours</h2>
+                        <p>Trip you remember for life long!!</p>
+                        <a href="#" class="da-link">Read more</a>
+                        <div class="da-img"></div>
+                    </div>
+                    <div class="da-slide">
+                        <h2>Best Travel Trip</h2>
+                        <p>Get best deals at our place</p>
+                        <a href="#" class="da-link">Read more</a>
+                        <div class="da-img"></div>
+                    </div> 
+                    <!--  <nav class="da-arrows">
+            <span class="da-arrows-prev"></span>
+            <span class="da-arrows-next"></span>
+        </nav> -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="introText">
+        <div class="container">
+            <div class="text-center">
+                <h1>My Trip Gives You a Great Holiday Package</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse interdum erat et neque tincidunt volutpat. Cras eget augue id dui varius pretium. Cras posuere dolor risus. Pellentesque elementum ultricies quam, sit amet rhoncus nisl viverra in. Cras imperdiet nisi a euismod molestie. Ut a metus arcu. Pellentesque feugiat dictum erat. Nulla vehicula condimentum purus, quis imperdiet nisl ultricies eleifend. Nulla quis rhoncus risus. Ut vel vehicula urna.</p>
+            </div>
+        </div>
+
+    </section>
+{% endblock %}

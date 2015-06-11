@@ -1,0 +1,7 @@
+packages_homepage:
+    path:     /
+    defaults: { _controller: PackagesBundle:Default:showView }
+
+package_page:
+    path:     /package
+    defaults: { _controller: PackagesBundle:Default:showPackage }

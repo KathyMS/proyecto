@@ -1,0 +1,239 @@
+{% extends '::base.html.twig' %}
+{% block menu %}
+    <li class="active"><a href="{{ path('packages_homepage') }}" class="scroll-link">Paquetes</a></li>
+    <li><a href="{{ path('restaurants_homepage') }}" class="scroll-link">Restaurantes</a></li>
+    <li><a href="{{ path('hotels_homepage') }}" class="scroll-link">Hoteles</a></li>
+    <li><a href="{{ path('destinations_homepage') }}" class="scroll-link">Destinos</a></li>
+    <li><a href="{{ path('about_homepage') }}" class="scroll-link">Sobre nosotros</a></li>
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Iniciar sesión<span class="caret"></span></a>
+        <ul class="dropdown-menu pull-right" role="menu">
+            <div>
+                <form id="signin" class="navbar-form navbar-right" role="form">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <input id="email" type="email" class="form-control" name="email" value="" placeholder="Email Address">                                        
+                    </div>
+                    <div>&nbsp;</div>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                        <input id="password" type="password" class="form-control" name="password" value="" placeholder="Password">                                        
+                    </div>
+                    <div>&nbsp;</div>
+                    <button type="submit" class="btn btn-primary">Ingresar</button>
+                </form>
+            </div>
+        </ul>
+    </li>
+{% endblock %}
+{% block body %} 
+    <section id="packages" class="secPad">
+        <div class="container container-fluid">
+            <div class="row">
+                <div class="col-sm-3 hidden-xs">
+                    <!--Affix start-->
+                    <div data-spy="affix" data-offset-top="0">
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <span class="badge">1</span>
+                                <h4 class="list-group-item-heading">Mis paquetes</h4>
+                                <a href="" class="list-group-item">Coliseo romano</a>
+                                <a href="" class="list-group-item">Nuevo</a>
+                            </li>
+                        </ul>
+                        <div class="list-group">
+                            <a href="" class="list-group-item">Crear paquete</a>
+                        </div>
+                    </div>
+                    <!--Affix end-->
+                </div>
+                <div class="col-sm-9">
+                    <!--Content start-->
+                    <div class="wrapper">
+                        <div class="heading">
+                            <!-- Heading -->
+                            <div class="text-center">
+                                <h2>Paquetes Disponibles</h2>
+                                <p>Escoga su paquete</p>
+                            </div>
+                            <div class="well container">
+                                <div class="col-md-9 pull-left">
+                                    <div class="input-group">
+                                        <div class="dropdown input-group-btn">
+                                            <button href="#" class="dropdown-toggle btn" data-toggle="dropdown" role="button" aria-expanded="false">Avanzada<span class="caret"></span></button>
+                                            <ul class="dropdown-menu" role="menu">
+                                                <div>
+                                                    <form id="" class="navbar-form navbar-right" role="form">
+                                                        <fieldset>
+                                                            <div class="control-group">
+                                                                <label class="control-label" for="email">Lugar</label>
+                                                                <div class="controls row-fluid">
+                                                                    <input class="form-control" type="text">
+                                                                </div>
+                                                            </div>
+                                                            <div class="control-group">
+                                                                <label class="control-label" for="name">Precio</label>
+                                                                <div class="controls row-fluid">
+                                                                    <input class="span2" required="required" type="number">
+                                                                    <label class="control-label">a</label>
+                                                                    <input class="span2" required="required" type="number">
+                                                                </div>
+                                                            </div>
+                                                            <div class="control-group">
+                                                                <button type="submit" class="btn btn-primary">Buscar</button>
+                                                            </div>
+                                                        </fieldset>
+                                                    </form>
+                                                </div>
+                                            </ul>
+                                        </div>
+                                        <input type="text" class="form-control" placeholder="Nombre">
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-default" type="button">Buscar</button>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 pull-right">
+                                    <select class="form-control">
+                                        <option value="">Mas popular</option>
+                                        <option value="">A-Z</option>
+                                        <option value="">Z-A</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3 col-sm-6">
+                                    <div class="cuadro_intro_hover " style="background-color:#cccccc;">
+                                        <p style="text-align:center;">
+                                            <img src="{{asset('resourses/images/pic/pic-1.jpg')}}" class="img-responsive" alt="">
+                                        </p>
+                                        <div class="caption">
+                                            <div class="blur"></div>
+                                            <div class="caption-text">
+                                                <h3>Coliseo Romano</h3>
+                                                <p>Este paquete esta disponible para todo publico</p>
+                                                <a class=" btn btn-default" href="{{ path('about_homepage') }}"><span class="glyphicon glyphicon-plus"> Ver</span></a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-3 col-sm-6">
+                                    <div class="cuadro_intro_hover " style="background-color:#cccccc;">
+                                        <p style="text-align:center;">
+                                            <img src="{{asset('resourses/images/pic/pic-1.jpg')}}" class="img-responsive" alt="">
+                                        </p>
+                                        <div class="caption">
+                                            <div class="blur"></div>
+                                            <div class="caption-text">
+                                                <h3>Coliseo Romano</h3>
+                                                <p>Este paquete esta disponible para todo publico</p>
+                                                <a class=" btn btn-default" href="{{ path('about_homepage') }}"><span class="glyphicon glyphicon-plus"> Ver</span></a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-3 col-sm-6">
+                                    <div class="cuadro_intro_hover " style="background-color:#cccccc;">
+                                        <p style="text-align:center;">
+                                            <img src="{{asset('resourses/images/pic/pic-1.jpg')}}" class="img-responsive" alt="">
+                                        </p>
+                                        <div class="caption">
+                                            <div class="blur"></div>
+                                            <div class="caption-text">
+                                                <h3>Coliseo Romano</h3>
+                                                <p>Este paquete esta disponible para todo publico</p>
+                                                <a class=" btn btn-default" href="{{ path('about_homepage') }}"><span class="glyphicon glyphicon-plus"> Ver</span></a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-3 col-sm-6">
+                                    <div class="cuadro_intro_hover " style="background-color:#cccccc;">
+                                        <p style="text-align:center;">
+                                            <img src="{{asset('resourses/images/pic/pic-1.jpg')}}" class="img-responsive" alt="">
+                                        </p>
+                                        <div class="caption">
+                                            <div class="blur"></div>
+                                            <div class="caption-text">
+                                                <h3>Coliseo Romano</h3>
+                                                <p>Este paquete esta disponible para todo publico</p>
+                                                <a class=" btn btn-default" href="{{ path('about_homepage') }}"><span class="glyphicon glyphicon-plus"> Ver</span></a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-3 col-sm-6">
+                                    <div class="cuadro_intro_hover " style="background-color:#cccccc;">
+                                        <p style="text-align:center;">
+                                            <img src="{{asset('resourses/images/pic/pic-1.jpg')}}" class="img-responsive" alt="">
+                                        </p>
+                                        <div class="caption">
+                                            <div class="blur"></div>
+                                            <div class="caption-text">
+                                                <h3>Coliseo Romano</h3>
+                                                <p>Este paquete esta disponible para todo publico</p>
+                                                <a class=" btn btn-default" href="{{ path('about_homepage') }}"><span class="glyphicon glyphicon-plus"> Ver</span></a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-3 col-sm-6">
+                                    <div class="cuadro_intro_hover " style="background-color:#cccccc;">
+                                        <p style="text-align:center;">
+                                            <img src="{{asset('resourses/images/pic/pic-1.jpg')}}" class="img-responsive" alt="">
+                                        </p>
+                                        <div class="caption">
+                                            <div class="blur"></div>
+                                            <div class="caption-text">
+                                                <h3>Coliseo Romano</h3>
+                                                <p>Este paquete esta disponible para todo publico</p>
+                                                <a class=" btn btn-default" href="{{ path('about_homepage') }}"><span class="glyphicon glyphicon-plus"> Ver</span></a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-3 col-sm-6">
+                                    <div class="cuadro_intro_hover " style="background-color:#cccccc;">
+                                        <p style="text-align:center;">
+                                            <img src="{{asset('resourses/images/pic/pic-1.jpg')}}" class="img-responsive" alt="">
+                                        </p>
+                                        <div class="caption">
+                                            <div class="blur"></div>
+                                            <div class="caption-text">
+                                                <h3>Coliseo Romano</h3>
+                                                <p>Este paquete esta disponible para todo publico</p>
+                                                <a class=" btn btn-default" href="{{ path('about_homepage') }}"><span class="glyphicon glyphicon-plus"> Ver</span></a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-3 col-sm-6">
+                                    <div class="cuadro_intro_hover " style="background-color:#cccccc;">
+                                        <p style="text-align:center;">
+                                            <img src="{{asset('resourses/images/pic/pic-1.jpg')}}" class="img-responsive" alt="">
+                                        </p>
+                                        <div class="caption">
+                                            <div class="blur"></div>
+                                            <div class="caption-text">
+                                                <h3>Coliseo Romano</h3>
+                                                <p>Este paquete esta disponible para todo publico</p>
+                                                <a class=" btn btn-default" href="{{ path('about_homepage') }}"><span class="glyphicon glyphicon-plus"> Ver</span></a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <!--Content end-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </section>
+            {% endblock %}

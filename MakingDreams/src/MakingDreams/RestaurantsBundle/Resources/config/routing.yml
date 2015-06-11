@@ -1,0 +1,3 @@
+restaurants_homepage:
+    path:     /
+    defaults: { _controller: RestaurantsBundle:Default:showView }

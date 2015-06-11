@@ -1,0 +1,34 @@
+login:
+    resource: "@LoginBundle/Resources/config/routing.yml"
+    prefix:   /login
+
+main:
+    resource: "@MainBundle/Resources/config/routing.yml"
+    prefix:   /main
+
+about:
+    resource: "@AboutBundle/Resources/config/routing.yml"
+    prefix:   /about
+
+destinations:
+    resource: "@DestinationsBundle/Resources/config/routing.yml"
+    prefix:   /destination
+
+hotels:
+    resource: "@HotelsBundle/Resources/config/routing.yml"
+    prefix:   /hotels
+
+restaurants:
+    resource: "@RestaurantsBundle/Resources/config/routing.yml"
+    prefix:   /restaurants
+
+packages:
+    resource: "@PackagesBundle/Resources/config/routing.yml"
+    prefix:   /packages
+
+init:
+    path: /
+    defaults:
+        _controller: FrameworkBundle:Redirect:urlRedirect
+        path: /login
+        permanent: true
