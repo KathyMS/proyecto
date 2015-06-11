@@ -2,14 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/xampp/htdocs/MakingDreams/src/MakingDreams/PackagesBundle/Resources/views/Default/Packages.html.twig</file>
-            <file>file:/C:/xampp/htdocs/MakingDreams/src/MakingDreams/AboutBundle/Resources/views/Default/about.html.twig</file>
-            <file>file:/C:/xampp/htdocs/MakingDreams/src/MakingDreams/LoginBundle/Resources/views/Default/login.html.twig</file>
-            <file>file:/C:/xampp/htdocs/MakingDreams/src/MakingDreams/HotelsBundle/Resources/views/Default/hotels.html.twig</file>
-            <file>file:/C:/xampp/htdocs/MakingDreams/src/MakingDreams/RestaurantsBundle/Resources/views/Default/restaurants.html.twig</file>
-            <file>file:/C:/xampp/htdocs/MakingDreams/app/Resources/views/base.html.twig</file>
-            <file>file:/C:/xampp/htdocs/MakingDreams/src/MakingDreams/DestinationsBundle/Resources/views/Default/destination.html.twig</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>
