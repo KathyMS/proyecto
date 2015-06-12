@@ -10,4 +10,8 @@ class DefaultController extends Controller
     {
         return $this->render('HotelsBundle:Default:hotels.html.twig');
     }
+    
+     public function showHotelAction() {
+        return $this->render('HotelsBundle:Default:hoteldetalle.html.twig');
+    }
 }

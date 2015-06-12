@@ -27,6 +27,213 @@
     </li>
     {% endblock %}
 
-    {% block body %} 
-        
+    {% block body %}
+        <img src="{{asset('resourses/images/hotel.jpg')}}" class="img-responsive" alt="" style="position:absolute;visibility:visible">
+       
+       <section id="packages" class="secPad">
+        <div class="container container-fluid">
+            <div class="row">
+                <div class="col-sm-3 hidden-xs">
+                    <!--Affix start-->
+                    <div data-spy="affix" data-offset-top="0">
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <span class="badge">1</span>
+                                <h4 class="list-group-item-heading">Mis hoteles</h4>
+                                <a href="" class="list-group-item">Hotel Riu</a>
+                                <a href="" class="list-group-item">Nuevo</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--Affix end-->
+                </div>
+                <div class="col-sm-9">
+                    <!--Content start-->
+                    <div class="wrapper">
+                        <div class="heading">
+                            <!-- Heading -->
+                            <div class="text-center">
+                                <h2>Hoteles Disponibles</h2>
+                                <p style="background-color: #000000">Escoga su hotel</p>
+                            </div>
+                            <div class="well container">
+                                <div class="col-md-9 pull-left">
+                                    <div class="input-group">
+                                        <div class="dropdown input-group-btn">
+                                            <button href="#" class="dropdown-toggle btn" data-toggle="dropdown" role="button" aria-expanded="false">Avanzada<span class="caret"></span></button>
+                                            <ul class="dropdown-menu" role="menu">
+                                                <div>
+                                                    <form id="" class="navbar-form navbar-right" role="form">
+                                                        <fieldset>
+                                                            <div class="control-group">
+                                                                <label class="control-label" for="email">Lugar</label>
+                                                                <div class="controls row-fluid">
+                                                                    <input class="form-control" type="text">
+                                                                </div>
+                                                            </div>
+                                                            <div class="control-group">
+                                                                <label class="control-label" for="name">Precio</label>
+                                                                <div class="controls row-fluid">
+                                                                    <input class="span2" required="required" type="number">
+                                                                    <label class="control-label">a</label>
+                                                                    <input class="span2" required="required" type="number">
+                                                                </div>
+                                                            </div>
+                                                            <div class="control-group">
+                                                                <button type="submit" class="btn btn-primary">Buscar</button>
+                                                            </div>
+                                                        </fieldset>
+                                                    </form>
+                                                </div>
+                                            </ul>
+                                        </div>
+                                        <input type="text" class="form-control" placeholder="Nombre">
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-default" type="button">Buscar</button>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 pull-right">
+                                    <select class="form-control">
+                                        <option value="">Mas popular</option>
+                                        <option value="">A-Z</option>
+                                        <option value="">Z-A</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3 col-sm-6">
+                                    <div class="cuadro_intro_hover " style="background-color:#cccccc;">
+                                        <p style="text-align:center;">
+                                            <img src="{{asset('resourses/images/riu.jpg')}}" class="img-responsive" alt="">
+                                        </p>
+                                        <div class="caption">
+                                            <div class="blur"></div>
+                                            <div class="caption-text">
+                                                <h3>Hotel Riu</h3>
+                                                <p>Este hotel esta disponible para todo publico</p>
+                                                <a class=" btn btn-default" href="{{ path('hotel_page') }}"><span class="glyphicon glyphicon-plus"> Ver</span></a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-3 col-sm-6">
+                                    <div class="cuadro_intro_hover " style="background-color:#cccccc;">
+                                        <p style="text-align:center;">
+                                            <img src="{{asset('resourses/images/tambor.jpg')}}" class="img-responsive" alt="">
+                                        </p>
+                                        <div class="caption">
+                                            <div class="blur"></div>
+                                            <div class="caption-text">
+                                                <h3>Hotel Barcelo Tambor</h3>
+                                                <p>Este hotel esta disponible para todo publico</p>
+                                                <a class=" btn btn-default" href="{{ path('hotel_page') }}"><span class="glyphicon glyphicon-plus"> Ver</span></a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-3 col-sm-6">
+                                    <div class="cuadro_intro_hover " style="background-color:#cccccc;">
+                                        <p style="text-align:center;">
+                                            <img src="{{asset('resourses/images/cartagojpg.jpg')}}" class="img-responsive" alt="">
+                                        </p>
+                                        <div class="caption">
+                                            <div class="blur"></div>
+                                            <div class="caption-text">
+                                                <h3>Hotel GrandPas</h3>
+                                                <p>Este hotel esta disponible para todo publico</p>
+                                                <a class=" btn btn-default" href="{{ path('hotel_page') }}"><span class="glyphicon glyphicon-plus"> Ver</span></a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-3 col-sm-6">
+                                    <div class="cuadro_intro_hover " style="background-color:#cccccc;">
+                                        <p style="text-align:center;">
+                                            <img src="{{asset('resourses/images/marriot.jpg')}}" class="img-responsive" alt="">
+                                        </p>
+                                        <div class="caption">
+                                            <div class="blur"></div>
+                                            <div class="caption-text">
+                                                <h3>Hotel Marriot </h3>
+                                                <p>Este hotel esta disponible para todo publico</p>
+                                                <a class=" btn btn-default" href="{{ path('hotel_page') }}"><span class="glyphicon glyphicon-plus"> Ver</span></a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-3 col-sm-6">
+                                    <div class="cuadro_intro_hover " style="background-color:#cccccc;">
+                                        <p style="text-align:center;">
+                                            <img src="{{asset('resourses/images/gran.jpg')}}" class="img-responsive" alt="">
+                                        </p>
+                                        <div class="caption">
+                                            <div class="blur"></div>
+                                            <div class="caption-text">
+                                                <h3>Hotel Gran Hotel</h3>
+                                                <p>Este hotel esta disponible para todo publico</p>
+                                                <a class=" btn btn-default" href="{{ path('hotel_page') }}"><span class="glyphicon glyphicon-plus"> Ver</span></a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-3 col-sm-6">
+                                    <div class="cuadro_intro_hover " style="background-color:#cccccc;">
+                                        <p style="text-align:center;">
+                                            <img src="{{asset('resourses/images/cartagojpg.jpg')}}" class="img-responsive" alt="">
+                                        </p>
+                                        <div class="caption">
+                                            <div class="blur"></div>
+                                            <div class="caption-text">
+                                                <h3>Hotel Grand Pas</h3>
+                                                <p>Este hotel esta disponible para todo publico</p>
+                                                <a class=" btn btn-default" href="{{ path('hotel_page') }}"><span class="glyphicon glyphicon-plus"> Ver</span></a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-3 col-sm-6">
+                                    <div class="cuadro_intro_hover " style="background-color:#cccccc;">
+                                        <p style="text-align:center;">
+                                            <img src="{{asset('resourses/images/riu.jpg')}}" class="img-responsive" alt="">
+                                        </p>
+                                        <div class="caption">
+                                            <div class="blur"></div>
+                                            <div class="caption-text">
+                                                <h3>Hotel Riu</h3>
+                                                <p>Este hotel esta disponible para todo publico</p>
+                                                <a class=" btn btn-default" href="{{ path('hotel_page') }}"><span class="glyphicon glyphicon-plus"> Ver</span></a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-3 col-sm-6">
+                                    <div class="cuadro_intro_hover " style="background-color:#cccccc;">
+                                        <p style="text-align:center;">
+                                            <img src="{{asset('resourses/images/marriot.jpg')}}" class="img-responsive" alt="">
+                                        </p>
+                                        <div class="caption">
+                                            <div class="blur"></div>
+                                            <div class="caption-text">
+                                                <h3>Hotel Marriot</h3>
+                                                <p>Este hotel esta disponible para todo publico</p>
+                                                <a class=" btn btn-default" href="{{ path('hotel_page') }}"><span class="glyphicon glyphicon-plus"> Ver</span></a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <!--Content end-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </section>
     {% endblock %}

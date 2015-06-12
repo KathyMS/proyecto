@@ -1,3 +1,7 @@
 destinations_homepage:
     path:     /
     defaults: { _controller: DestinationsBundle:Default:showView }
+    
+destiny_detail:
+    path:     /detail
+    defaults: { _controller: DestinationsBundle:Default:showDetail }
