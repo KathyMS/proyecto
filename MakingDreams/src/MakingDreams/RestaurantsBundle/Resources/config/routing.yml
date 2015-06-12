@@ -5,3 +5,7 @@ restaurants_homepage:
 restaurants_detail:
     path:     /detail
     defaults: { _controller: RestaurantsBundle:Default:showRest }
+    
+restaurants_admin:
+    path:     /admin
+    defaults: { _controller: RestaurantsBundle:Default:showRestAdmin }
