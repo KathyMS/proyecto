@@ -14,4 +14,11 @@ class DefaultController extends Controller {
         return $this->render('PackagesBundle:Default:package.html.twig');
     }
 
+    public function showNewPackageAction() {
+        return $this->render('PackagesBundle:Default:new_package.html.twig');
+    }
+
+    public function showEditPackageAction() {
+        return $this->render('PackagesBundle:Default:edit_package.html.twig');
+    }
 }

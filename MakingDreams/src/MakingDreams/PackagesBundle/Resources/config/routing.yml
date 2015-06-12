@@ -5,3 +5,11 @@ packages_homepage:
 package_page:
     path:     /package
     defaults: { _controller: PackagesBundle:Default:showPackage }
+    
+newpackage_page:
+    path:     /new
+    defaults: { _controller: PackagesBundle:Default:showNewPackage }
+    
+editpackage_page:
+    path:     /edit
+    defaults: { _controller: PackagesBundle:Default:showEditPackage }
