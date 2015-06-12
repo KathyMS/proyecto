@@ -20,7 +20,7 @@
         <!--[if lte IE 8]>
                     <script type="text/javascript" src="http://explorercanvas.googlecode.com/svn/trunk/excanvas.js"></script>
             <![endif]-->
-        {% if app.session.get('type') == "default" %}
+        {% if (app.session.get('type') == "default") or (app.session.get('type') is not defined) %}
             <link rel="stylesheet" href="{{asset('resourses/css/bootstrap.min.css')}}" />
         {% elseif app.session.get('type') == "cyborg" %}
             <link rel="stylesheet" href="https://bootswatch.com/cyborg/bootstrap.min.css" />

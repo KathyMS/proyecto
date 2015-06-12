@@ -25,6 +25,17 @@
             </div>
         </ul>
     </li>
+    <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes">Temas<span class="caret"></span></a>
+        <ul class="dropdown-menu" aria-labelledby="Temas">
+            <li><a href="{{ path('configurations', {'type':'default', 'uri':'package_page'}) }}">Default</a></li>
+            <li class="divider"></li>
+            <li><a href="{{ path('configurations', {'type':'cyborg', 'uri':'package_page'}) }}">Cyborg</a></li>
+            <li><a href="{{ path('configurations', {'type':'journal', 'uri':'package_page'}) }}">Journal</a></li>
+            <li><a href="{{ path('configurations', {'type':'sandstone', 'uri':'package_page'}) }}">Sandstone</a></li>
+            <li><a href="{{ path('configurations', {'type':'slate', 'uri':'package_page'}) }}">Slate</a></li>
+        </ul>
+    </li>
 {% endblock %}
 {% block body %} 
     <section id="packages" class="secPad">
@@ -56,7 +67,7 @@
                                 <h2>Paquetes Disponibles</h2>
                                 <p>Escoga su paquete</p>
                             </div>
-                            <div class="well container">
+                            <div class="well container col-md-12">
                                 <div class="col-md pull-left">
                                     <div class="input-group">
                                         <div class="dropdown input-group-btn">
@@ -94,7 +105,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="well container">
+                            <div class="well container col-md-12">
                                 <form class="form-horizontal" role="form">
                                     <div class="form-group">
                                         <h3 class="col-lg-2 control-label">Nombre</h3>
