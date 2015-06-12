@@ -25,6 +25,17 @@
             </div>
         </ul>
     </li>
+                <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes">Temas<span class="caret"></span></a>
+        <ul class="dropdown-menu" aria-labelledby="Temas">
+            <li><a href="{{ path('configurations', {'type':'default', 'uri':'hotels_homepage'}) }}">Default</a></li>
+            <li class="divider"></li>
+            <li><a href="{{ path('configurations', {'type':'cyborg', 'uri':'hotels_homepage'}) }}">Cyborg</a></li>
+            <li><a href="{{ path('configurations', {'type':'journal', 'uri':'hotels_homepage'}) }}">Journal</a></li>
+            <li><a href="{{ path('configurations', {'type':'sandstone', 'uri':'hotels_homepage'}) }}">Sandstone</a></li>
+            <li><a href="{{ path('configurations', {'type':'slate', 'uri':'hotels_homepage'}) }}">Slate</a></li>
+        </ul>
+    </li>
     {% endblock %}
 
     {% block body %}

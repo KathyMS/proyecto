@@ -10,4 +10,7 @@ class DefaultController extends Controller
     {
         return $this->render('RestaurantsBundle:Default:restaurants.html.twig');
     }
+        public function showRestAction() {
+        return $this->render('RestaurantsBundle:Default:restaurantDetail.html.twig');
+    }
 }

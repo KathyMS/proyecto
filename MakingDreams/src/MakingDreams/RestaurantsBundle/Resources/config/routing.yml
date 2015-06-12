@@ -1,3 +1,7 @@
 restaurants_homepage:
     path:     /
     defaults: { _controller: RestaurantsBundle:Default:showView }
+    
+restaurants_detail:
+    path:     /detail
+    defaults: { _controller: RestaurantsBundle:Default:showRest }

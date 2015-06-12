@@ -25,6 +25,17 @@
             </div>
         </ul>
     </li>
+            <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes">Temas<span class="caret"></span></a>
+        <ul class="dropdown-menu" aria-labelledby="Temas">
+            <li><a href="{{ path('configurations', {'type':'default', 'uri':'about_homepage'}) }}">Default</a></li>
+            <li class="divider"></li>
+            <li><a href="{{ path('configurations', {'type':'cyborg', 'uri':'about_homepage'}) }}">Cyborg</a></li>
+            <li><a href="{{ path('configurations', {'type':'journal', 'uri':'about_homepage'}) }}">Journal</a></li>
+            <li><a href="{{ path('configurations', {'type':'sandstone', 'uri':'about_homepage'}) }}">Sandstone</a></li>
+            <li><a href="{{ path('configurations', {'type':'slate', 'uri':'about_homepage'}) }}">Slate</a></li>
+        </ul>
+    </li>
 {% endblock %}
 {% block body %} 
     <section id="contactUs" class="page-section secPad">

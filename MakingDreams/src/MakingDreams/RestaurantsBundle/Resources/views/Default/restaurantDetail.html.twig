@@ -1,0 +1,76 @@
+{# empty Twig template #}
+{% extends '::base.html.twig' %}
+{% block menu %}
+    <li><a href="{{ path('packages_homepage') }}" class="scroll-link">Paquetes</a></li>
+    <li><a href="{{ path('restaurants_homepage') }}" class="scroll-link">Restaurantes</a></li>
+    <li><a href="{{ path('hotels_homepage') }}" class="scroll-link">Hoteles</a></li>
+    <li><a href="{{ path('destinations_homepage') }}" class="scroll-link">Destinos</a></li>
+    <li class="active"><a href="{{ path('about_homepage') }}" class="scroll-link">Sobre nosotros</a></li>
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Iniciar sesión<span class="caret"></span></a>
+        <ul class="dropdown-menu pull-right" role="menu">
+            <div>
+                <form id="signin" class="navbar-form navbar-right" role="form">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <input id="email" type="email" class="form-control" name="email" value="" placeholder="Email Address">                                        
+                    </div>
+                    <div>&nbsp;</div>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                        <input id="password" type="password" class="form-control" name="password" value="" placeholder="Password">                                        
+                    </div>
+                    <div>&nbsp;</div>
+                    <button type="submit" class="btn btn-primary">Ingresar</button>
+                </form>
+            </div>
+        </ul>
+    </li>
+    <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes">Temas<span class="caret"></span></a>
+        <ul class="dropdown-menu" aria-labelledby="Temas">
+            <li><a href="{{ path('configurations', {'type':'default', 'uri':'restaurants_detail'}) }}">Default</a></li>
+            <li class="divider"></li>
+            <li><a href="{{ path('configurations', {'type':'cyborg', 'uri':'restaurants_detail'}) }}">Cyborg</a></li>
+            <li><a href="{{ path('configurations', {'type':'journal', 'uri':'restaurants_detail'}) }}">Journal</a></li>
+            <li><a href="{{ path('configurations', {'type':'sandstone', 'uri':'restaurants_detail'}) }}">Sandstone</a></li>
+            <li><a href="{{ path('configurations', {'type':'slate', 'uri':'restaurants_detail'}) }}">Slate</a></li>
+        </ul>
+    </li>
+{% endblock %}
+{% block body %} 
+
+    <img src="{{asset('resourses/images/detailRestFont.jpg')}}" width="1600px" height="1000px" class="img-responsive"  >
+
+    <section class="page-section secPad">
+
+        <div class="heading text-center">
+            <h2 style="position:absolute; top:100px; left:500px; visibility:visible;">Detalles de Restaurante</h2>
+            <h2 style="position:absolute; top:540px; left:500px; visibility:visible;">Galeria</h2>
+            <div STYLE="position:absolute; top:200px; left:200px; visibility:visible;"> 
+
+                <img name="restMostrado" src="{{asset('resourses/images/restaurantes/naans.jpg')}}" class="sombra" alt="" style="border:3px solid gray;" />
+                <marquee width="500" style="position:absolute; top:400px; left:300px;" scrolldelay="1" scrollamount="6" direction="left" loop="infinite" onmouseout="this.start()"
+                         onmouseover="this.stop()"><a href="URL que Redirecciona al tema 1" target="_blank"><img
+                            title="Titulo de la entrada" alt="Titulo de la entrada" 
+                            src="{{asset('resourses/images/restaurantes/naans.jpg')}}"
+                            height ="80px" width="80px"/></a><a href="URL que Redirecciona al tema 2" 
+                                                        target="_blank"><img title="Titulo de la entrada" alt="Titulo de la entrada"  
+                                         src="{{asset('resourses/images/restaurantes/naans.jpg')}}" 
+                                         height ="80px" width="80px" /></a></marquee>
+            </div>
+        </div>
+
+
+    </section>>
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
