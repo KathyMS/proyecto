@@ -1,182 +1,67 @@
-{% extends '::base.html.twig' %}
-{% block menu %}
-    <li class="active"><a href="{{ path('packages_homepage') }}" class="scroll-link">Paquetes</a></li>
-    <li><a href="{{ path('restaurants_homepage') }}" class="scroll-link">Restaurantes</a></li>
-    <li><a href="{{ path('hotels_homepage') }}" class="scroll-link">Hoteles</a></li>
-    <li><a href="{{ path('destinations_homepage') }}" class="scroll-link">Destinos</a></li>
-    <li><a href="{{ path('about_homepage') }}" class="scroll-link">Sobre nosotros</a></li>
-    <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Iniciar sesión<span class="caret"></span></a>
-        <ul class="dropdown-menu pull-right" style="min-width:300px" role="menu">
-            <div>
-                <form id="signin" class="navbar-form navbar-right" role="form">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        <input id="email" type="email" class="form-control" name="email" value="" placeholder="Email Address">                                        
-                    </div>
-                    <div>&nbsp;</div>
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                        <input id="password" type="password" class="form-control" name="password" value="" placeholder="Password">                                        
-                    </div>
-                    <div>&nbsp;</div>
-                    <button type="submit" class="btn btn-primary">Ingresar</button>
-                </form>
+{% extends 'PackagesBundle:Default:Template.html.twig' %}
+{% block container %}
+    <form class="form-horizontal" role="form">
+        <div class="form-group">
+            <h3 class="col-lg-2 control-label">Nombre</h3>
+            <div class="col-lg-5">
+                <input type="text" class="form-control" id="" placeholder="Nombre" disabled="true">
             </div>
-        </ul>
-    </li>
-    <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes">Temas<span class="caret"></span></a>
-        <ul class="dropdown-menu" aria-labelledby="Temas">
-            <li><a href="{{ path('configurations', {'type':'default', 'uri':'package_page'}) }}">Default</a></li>
-            <li class="divider"></li>
-            <li><a href="{{ path('configurations', {'type':'cyborg', 'uri':'package_page'}) }}">Cyborg</a></li>
-            <li><a href="{{ path('configurations', {'type':'journal', 'uri':'package_page'}) }}">Journal</a></li>
-            <li><a href="{{ path('configurations', {'type':'sandstone', 'uri':'package_page'}) }}">Sandstone</a></li>
-            <li><a href="{{ path('configurations', {'type':'slate', 'uri':'package_page'}) }}">Slate</a></li>
-        </ul>
-    </li>
-{% endblock %}
-{% block body %} 
-    <section id="packages" class="secPad">
-        <div class="container container-fluid">
-            <div class="row">
-                <div class="col-sm-3 hidden-xs">
-                    <!--Affix start-->
-                    <div data-spy="affix" data-offset-top="0">
-                        <ul class="list-group">
-                            <li class="list-group-item">
-                                <span class="badge">1</span>
-                                <h4 class="list-group-item-heading">Mis paquetes</h4>
-                                <a href="{{ path('package_page') }}" class="list-group-item">Coliseo romano</a>
-                                <a href="{{ path('newpackage_page') }}" class="list-group-item">Nuevo</a>
-                            </li>
-                        </ul>
-                        <div class="list-group">
-                            <a href="{{ path('newpackage_page') }}" class="list-group-item">Crear paquete</a>
-                        </div>
-                    </div>
-                    <!--Affix end-->
+        </div>
+        <div class="form-group">
+            <div class="form-horizontal">
+                <label class="col-lg-2 control-label">Lugar</label>
+                <div class="col-lg-4">
+                    <input type="text" class="form-control" placeholder="Lugar" disabled="true">
                 </div>
-                <div class="col-sm-9">
-                    <!--Content start-->
-                    <div class="wrapper">
-                        <div class="heading">
-                            <!-- Heading -->
-                            <div class="text-center">
-                                <h2>Paquetes Disponibles</h2>
-                                <p>Escoga su paquete</p>
-                            </div>
-                            <div class="well container col-md-12">
-                                <div class="col-md pull-left">
-                                    <div class="input-group">
-                                        <div class="dropdown input-group-btn">
-                                            <button href="#" class="dropdown-toggle btn" data-toggle="dropdown" role="button" aria-expanded="false">Avanzada<span class="caret"></span></button>
-                                            <ul class="dropdown-menu" style="min-width:300px" role="menu">
-                                                <div>
-                                                    <form id="" class="navbar-form navbar-right" role="form">
-                                                        <fieldset>
-                                                            <div class="control-group">
-                                                                <label class="control-label" for="email">Lugar</label>
-                                                                <div class="controls row-fluid">
-                                                                    <input class="form-control" type="text">
-                                                                </div>
-                                                            </div>
-                                                            <div class="control-group">
-                                                                <label class="control-label" for="name">Precio</label>
-                                                                <div class="controls row-fluid">
-                                                                    <input class="span2" required="required" type="number">
-                                                                    <label class="control-label">a</label>
-                                                                    <input class="span2" required="required" type="number">
-                                                                </div>
-                                                            </div>
-                                                            <div class="control-group">
-                                                                <button type="submit" class="btn btn-primary">Buscar</button>
-                                                            </div>
-                                                        </fieldset>
-                                                    </form>
-                                                </div>
-                                            </ul>
-                                        </div>
-                                        <input type="text" class="form-control" placeholder="Nombre">
-                                        <span class="input-group-btn">
-                                            <button class="btn btn-default" type="button">Buscar</button>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="well container col-md-12">
-                                <form class="form-horizontal" role="form">
-                                    <div class="form-group">
-                                        <h3 class="col-lg-2 control-label">Nombre</h3>
-                                        <div class="col-lg-5">
-                                            <input type="text" class="form-control" id="" placeholder="Nombre" disabled="true">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="form-horizontal">
-                                            <label class="col-lg-2 control-label">Lugar</label>
-                                            <div class="col-lg-4">
-                                                <input type="text" class="form-control" placeholder="Lugar" disabled="true">
-                                            </div>
-                                        </div>
-                                        <div class="form-horizontal">
-                                            <label class="col-lg-2 control-label">Precio</label>
-                                            <div class="col-lg-4">
-                                                <input type="number" class="form-control" placeholder="Precio" disabled="true">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-lg-2 control-label">Descripción</label>
-                                        <div class="col-lg-10">
-                                            <textarea class="form-control" rows="3" disabled="true"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="form-horizontal">
-                                            <label class="col-lg-2 control-label">Hotel</label>
-                                            <div class="col-lg-4">
-                                                <input type="text" class="form-control" placeholder="Hotel" disabled="true">
-                                            </div>
-                                        </div>
-                                        <div class="form-horizontal">
-                                            <label class="col-lg-2 control-label">Restaurante</label>
-                                            <div class="col-lg-4">
-                                                <input type="text" class="form-control" placeholder="Restaurante" disabled="true">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <center>
-                                            <div class="fileupload fileupload-exists" data-provides="fileupload" data-name="myimage">
-                                                <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;"><img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&text=no+image" /></div>
-                                                <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;">
-                                                    <img src="">
-                                                </div>
-                                            </div>
-                                        </center>
-                                    </div>
-                                    <div class="form-group">
-                                        <center>
-                                            <div class="btn-group" role="group">
-                                                <div class="btn-group" role="group">
-                                                    <a type="button" class="btn btn-default" href="{{ path('editpackage_page') }}">Editar</a>
-                                                </div>
-                                                <div class="btn-group" role="group">
-                                                    <button type="button" class="btn btn-default">Eliminar</button>
-                                                </div>
-                                            </div>
-                                        </center>
-                                    </div>
-                                </form>
-                            </div>                                
-                            <!--Content end-->
-                        </div>
-                    </div>
+            </div>
+            <div class="form-horizontal">
+                <label class="col-lg-2 control-label">Precio</label>
+                <div class="col-lg-4">
+                    <input type="number" class="form-control" placeholder="Precio" disabled="true">
                 </div>
             </div>
         </div>
-    </div>
-</section>
+        <div class="form-group">
+            <label class="col-lg-2 control-label">Descripción</label>
+            <div class="col-lg-10">
+                <textarea class="form-control" rows="3" disabled="true"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-horizontal">
+                <label class="col-lg-2 control-label">Hotel</label>
+                <div class="col-lg-4">
+                    <input type="text" class="form-control" placeholder="Hotel" disabled="true">
+                </div>
+            </div>
+            <div class="form-horizontal">
+                <label class="col-lg-2 control-label">Restaurante</label>
+                <div class="col-lg-4">
+                    <input type="text" class="form-control" placeholder="Restaurante" disabled="true">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <center>
+                <div class="fileupload fileupload-exists" data-provides="fileupload" data-name="myimage">
+                    <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;"><img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&text=no+image" /></div>
+                    <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;">
+                        <img src="">
+                    </div>
+                </div>
+            </center>
+        </div>
+        <div class="form-group">
+            <center>
+                <div class="btn-group" role="group">
+                    <div class="btn-group" role="group">
+                        <a type="button" class="btn btn-default" href="{{ path('editpackage_page') }}">Editar</a>
+                    </div>
+                    <div class="btn-group" role="group">
+                        <button type="button" class="btn btn-default">Eliminar</button>
+                    </div>
+                </div>
+            </center>
+        </div>
+    </form>
 {% endblock %}
