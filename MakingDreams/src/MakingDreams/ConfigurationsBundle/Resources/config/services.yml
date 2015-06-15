@@ -1,4 +1,0 @@
-services:
-#    configurations.example:
-#        class: MakingDreams\ConfigurationsBundle\Example
-#        arguments: [@service_id, "plain_value", %parameter%]

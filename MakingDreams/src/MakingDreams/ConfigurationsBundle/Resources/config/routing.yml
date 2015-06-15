@@ -1,3 +1,0 @@
-configurations_homepage:
-    path:     /
-    defaults: { _controller: ConfigurationsBundle:Default:configurations }

@@ -1,25 +1,10 @@
 {% extends '::base.html.twig' %}
-{% block menu1 %}
+{% block menu %}
     <li><a href="{{ path('restaurants_homepage') }}" class="scroll-link">Restaurantes</a></li>
     <li><a href="{{ path('hotels_homepage') }}" class="scroll-link">Hoteles</a></li>
     <li><a href="{{ path('destinations_homepage') }}" class="scroll-link">Destinos</a></li>
     <li><a href="{{ path('about_homepage') }}" class="scroll-link">Sobre nosotros</a></li>
     {% endblock %}
-
-{% block menu2 %}
-    <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span><span class="caret"></span></a>
-        <ul class="dropdown-menu" aria-labelledby="Temas">
-            <li><a href="{{ path('configurations', {'type':'default', 'uri':'login_homepage'}) }}">Default</a></li>
-            <li class="divider"></li>
-            <li><a href="{{ path('configurations', {'type':'cyborg', 'uri':'login_homepage'}) }}">Cyborg</a></li>
-            <li><a href="{{ path('configurations', {'type':'journal', 'uri':'login_homepage'}) }}">Journal</a></li>
-            <li><a href="{{ path('configurations', {'type':'sandstone', 'uri':'login_homepage'}) }}">Sandstone</a></li>
-            <li><a href="{{ path('configurations', {'type':'slate', 'uri':'login_homepage'}) }}">Slate</a></li>
-        </ul>
-    </li>
-{% endblock %}
-
 
 {% block body %} 
     <section id="home">

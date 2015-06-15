@@ -1,7 +1,3 @@
-configurations:
-    path:   /configurations
-    defaults: { _controller: ConfigurationsBundle:Default:configurations }
-
 login:
     resource: "@LoginBundle/Resources/config/routing.yml"
     prefix:   /login

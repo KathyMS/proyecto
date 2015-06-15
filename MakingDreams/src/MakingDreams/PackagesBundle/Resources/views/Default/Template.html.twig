@@ -1,24 +1,11 @@
 {% extends '::base.html.twig' %}
-{% block menu1 %}
+{% block menu %}
     <li class="active"><a href="{{ path('packages_homepage') }}" class="scroll-link">Paquetes</a></li>
     <li><a href="{{ path('restaurants_homepage') }}" class="scroll-link">Restaurantes</a></li>
     <li><a href="{{ path('hotels_homepage') }}" class="scroll-link">Hoteles</a></li>
     <li><a href="{{ path('destinations_homepage') }}" class="scroll-link">Destinos</a></li>
     <li><a href="{{ path('about_homepage') }}" class="scroll-link">Sobre nosotros</a></li>
-{% endblock %}
-{% block menu2 %} 
-    <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span><span class="caret"></span></a>
-        <ul class="dropdown-menu" aria-labelledby="Temas">
-            <li><a href="{{ path('configurations', {'type':'default', 'uri':'packages_homepage'}) }}">Default</a></li>
-            <li class="divider"></li>
-            <li><a href="{{ path('configurations', {'type':'cyborg', 'uri':'packages_homepage'}) }}">Cyborg</a></li>
-            <li><a href="{{ path('configurations', {'type':'journal', 'uri':'packages_homepage'}) }}">Journal</a></li>
-            <li><a href="{{ path('configurations', {'type':'sandstone', 'uri':'packages_homepage'}) }}">Sandstone</a></li>
-            <li><a href="{{ path('configurations', {'type':'slate', 'uri':'packages_homepage'}) }}">Slate</a></li>
-        </ul>
-    </li>
-{% endblock %}
+    {% endblock %}
 {% block body %} 
     <section id="packages" class="secPad">
         <div class="container container-fluid">
@@ -56,26 +43,25 @@
                                             <button href="#" class="dropdown-toggle btn" data-toggle="dropdown" role="button" aria-expanded="false">Avanzada<span class="caret"></span></button>
                                             <ul class="dropdown-menu" style="min-width:300px" role="menu">
                                                 <div>
-                                                    <form id="" class="navbar-form navbar-right" role="form">
-                                                        <fieldset>
-                                                            <div class="control-group">
-                                                                <label class="control-label" for="email">Lugar</label>
-                                                                <div class="controls row-fluid">
-                                                                    <input class="form-control" type="text">
-                                                                </div>
+                                                    <form id="" class="well-lg" role="form">
+                                                        <div class="input-group">
+                                                            <label class="control-label" for="email">Lugar</label>
+                                                            <div class="controls row-fluid">
+                                                                <input class="form-control" type="text">
                                                             </div>
-                                                            <div class="control-group">
-                                                                <label class="control-label" for="name">Precio</label>
-                                                                <div class="controls row-fluid">
-                                                                    <input class="span2" required="required" type="number">
-                                                                    <label class="control-label">a</label>
-                                                                    <input class="span2" required="required" type="number">
-                                                                </div>
+                                                        </div>
+                                                        <div class="input-group">
+                                                            <label class="control-label" for="name">Precio</label>
+                                                            <div class="controls row-fluid">
+                                                                <input class="span2" required="required" type="number">
+                                                                <label class="control-label">a</label>
+                                                                <input class="span2" required="required" type="number">
                                                             </div>
-                                                            <div class="control-group">
-                                                                <button type="submit" class="btn btn-primary">Buscar</button>
-                                                            </div>
-                                                        </fieldset>
+                                                        </div>
+                                                        <div>&nbsp;</div>
+                                                        <div class="input-group">
+                                                            <button type="submit" class="btn btn-primary">Buscar</button>
+                                                        </div>
                                                     </form>
                                                 </div>
                                             </ul>
