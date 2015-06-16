@@ -23,6 +23,7 @@ class AppKernel extends Kernel
             new MakingDreams\AboutBundle\AboutBundle(),
             new MakingDreams\MainBundle\MainBundle(),
             new MakingDreams\LoginBundle\LoginBundle(),
+            new MakingDreams\ConfigurationsBundle\ConfigurationsBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
