@@ -1,0 +1,46 @@
+MakingDreams\RestaurantsBundle\Entity\ImagenesRestHot:
+    type: entity
+    table: imagenes_rest_hot
+    indexes:
+        id_Rest_Hot:
+            columns:
+                - idImagenes_Rest_Hot
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        imagen1:
+            type: blob
+            nullable: true
+            length: null
+            fixed: false
+            comment: ''
+        imagen2:
+            type: blob
+            nullable: true
+            length: null
+            fixed: false
+            comment: ''
+        imagen3:
+            type: blob
+            nullable: true
+            length: null
+            fixed: false
+            comment: ''
+    manyToOne:
+        idimagenesRestHot:
+            targetEntity: HotelRestaurante
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                idImagenes_Rest_Hot:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

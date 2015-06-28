@@ -1,0 +1,30 @@
+destino:
+    path:     /
+    defaults: { _controller: "DestinationsBundle:Destino:index" }
+
+destino_show:
+    path:     /{id}/show
+    defaults: { _controller: "DestinationsBundle:Destino:show" }
+
+destino_new:
+    path:     /new
+    defaults: { _controller: "DestinationsBundle:Destino:new" }
+
+destino_create:
+    path:     /create
+    defaults: { _controller: "DestinationsBundle:Destino:create" }
+    methods:  POST
+
+destino_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "DestinationsBundle:Destino:edit" }
+
+destino_update:
+    path:     /{id}/update
+    defaults: { _controller: "DestinationsBundle:Destino:update" }
+    methods:  [POST, PUT]
+
+destino_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "DestinationsBundle:Destino:delete" }
+    methods:  [POST, DELETE]

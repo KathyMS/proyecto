@@ -1,0 +1,30 @@
+hotelrestaurante:
+    path:     /
+    defaults: { _controller: "HotelsBundle:HotelRestaurante:index" }
+
+hotelrestaurante_show:
+    path:     /{id}/show
+    defaults: { _controller: "HotelsBundle:HotelRestaurante:show" }
+
+hotelrestaurante_new:
+    path:     /new
+    defaults: { _controller: "HotelsBundle:HotelRestaurante:new" }
+
+hotelrestaurante_create:
+    path:     /create
+    defaults: { _controller: "HotelsBundle:HotelRestaurante:create" }
+    methods:  POST
+
+hotelrestaurante_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "HotelsBundle:HotelRestaurante:edit" }
+
+hotelrestaurante_update:
+    path:     /{id}/update
+    defaults: { _controller: "HotelsBundle:HotelRestaurante:update" }
+    methods:  [POST, PUT]
+
+hotelrestaurante_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "HotelsBundle:HotelRestaurante:delete" }
+    methods:  [POST, DELETE]

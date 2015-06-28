@@ -1,0 +1,54 @@
+MakingDreams\PackagesBundle\Entity\Usuario:
+    type: entity
+    table: usuario
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        nombre:
+            type: string
+            nullable: true
+            length: 45
+            fixed: false
+            comment: ''
+        apellidos:
+            type: string
+            nullable: true
+            length: 45
+            fixed: false
+            comment: ''
+        direccion:
+            type: string
+            nullable: true
+            length: 45
+            fixed: false
+            comment: ''
+        correo:
+            type: string
+            nullable: true
+            length: 45
+            fixed: false
+            comment: ''
+        contrasena:
+            type: string
+            nullable: true
+            length: 45
+            fixed: false
+            comment: ''
+        telefono:
+            type: string
+            nullable: true
+            length: 20
+            fixed: false
+            comment: ''
+        tipo:
+            type: boolean
+            nullable: true
+            comment: ''
+    lifecycleCallbacks: {  }

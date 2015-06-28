@@ -1,0 +1,46 @@
+MakingDreams\LoginBundle\Entity\Destino:
+    type: entity
+    table: destino
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        nombre:
+            type: string
+            nullable: true
+            length: 45
+            fixed: false
+            comment: ''
+        direccion:
+            type: string
+            nullable: true
+            length: 400
+            fixed: false
+            comment: ''
+        resenaHistorica:
+            type: string
+            nullable: true
+            length: 500
+            fixed: false
+            comment: ''
+            column: resena_historica
+        direccionMapa:
+            type: string
+            nullable: true
+            length: 45
+            fixed: false
+            comment: ''
+            column: direccion_mapa
+        provincia:
+            type: string
+            nullable: true
+            length: 45
+            fixed: false
+            comment: ''
+    lifecycleCallbacks: {  }

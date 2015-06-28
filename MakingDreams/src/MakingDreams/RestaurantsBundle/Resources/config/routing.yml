@@ -1,3 +1,7 @@
+restaurants_hotelrestaurante:
+    resource: "@RestaurantsBundle/Resources/config/routing/hotelrestaurante.yml"
+    prefix:   /hotelrestaurante
+
 restaurants_homepage:
     path:     /
     defaults: { _controller: RestaurantsBundle:Default:showView }

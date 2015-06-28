@@ -1,0 +1,30 @@
+paquete:
+    path:     /
+    defaults: { _controller: "PackagesBundle:Paquete:index" }
+
+paquete_show:
+    path:     /{id}/show
+    defaults: { _controller: "PackagesBundle:Paquete:show" }
+
+paquete_new:
+    path:     /new
+    defaults: { _controller: "PackagesBundle:Paquete:new" }
+
+paquete_create:
+    path:     /create
+    defaults: { _controller: "PackagesBundle:Paquete:create" }
+    methods:  POST
+
+paquete_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "PackagesBundle:Paquete:edit" }
+
+paquete_update:
+    path:     /{id}/update
+    defaults: { _controller: "PackagesBundle:Paquete:update" }
+    methods:  [POST, PUT]
+
+paquete_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "PackagesBundle:Paquete:delete" }
+    methods:  [POST, DELETE]

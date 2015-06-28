@@ -1,0 +1,76 @@
+MakingDreams\RestaurantsBundle\Entity\Paquete:
+    type: entity
+    table: paquete
+    indexes:
+        id_hotel_idx:
+            columns:
+                - id_hotel
+        id_restaurante_idx:
+            columns:
+                - id_restaurante
+        id_usuario_idx:
+            columns:
+                - id_usuario
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        nombre:
+            type: string
+            nullable: true
+            length: 45
+            fixed: false
+            comment: ''
+        descripcion:
+            type: string
+            nullable: true
+            length: 500
+            fixed: false
+            comment: ''
+        precio:
+            type: float
+            nullable: true
+            precision: 10
+            scale: 0
+            comment: ''
+        imagen:
+            type: blob
+            nullable: true
+            length: null
+            fixed: false
+            comment: ''
+    manyToOne:
+        idHotel:
+            targetEntity: HotelRestaurante
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_hotel:
+                    referencedColumnName: id
+            orphanRemoval: false
+        idRestaurante:
+            targetEntity: HotelRestaurante
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_restaurante:
+                    referencedColumnName: id
+            orphanRemoval: false
+        idUsuario:
+            targetEntity: Usuario
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_usuario:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

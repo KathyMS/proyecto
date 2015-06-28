@@ -1,3 +1,7 @@
+packages_paquete:
+    resource: "@PackagesBundle/Resources/config/routing/paquete.yml"
+    prefix:   /paquete
+
 packages_homepage:
     path:     /
     defaults: { _controller: PackagesBundle:Default:showView }
