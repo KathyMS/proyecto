@@ -41,7 +41,6 @@
         <link href="{{asset('resourses/font/css/font-awesome.min.css')}}" rel="stylesheet">
     </head>
 
-
     <header class="header">
         <div class="container">
             <nav class="navbar navbar-inverse" role="navigation">
@@ -62,9 +61,14 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Iniciar sesión<span class="caret"></span></a>
                         <ul class="dropdown-menu pull-right" style="min-width:300px" role="menu">
                             <div>
-                                <form id="signin" class="well-lg" role="form">
+                                <div class="alert alert-info">
+                                    Por favor inicie sesión con su usuario y contraseña
+                                </div>
+                                <form id="signin" class="well-lg" role="form" action="{{ path('loginalgo') }}" method="post">
+
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+
                                         <input id="email" type="email" class="form-control" name="email" value="" placeholder="Email Address">                                        
                                     </div>
                                     <div>&nbsp;</div>
@@ -97,6 +101,17 @@
     </div>
     <!--/.container-->
 </header>
+
+
+{% for flashMessage in app.session.flashbag.get('mensaje') %}
+    <div class="alert alert-info">
+
+        <font color="#FF0000">{{ flashMessage }}</font>
+
+    </div>
+{% endfor %}
+
+
 <!--/.header-->
 <div id="#top"></div>
 {% block body %}{% endblock %}

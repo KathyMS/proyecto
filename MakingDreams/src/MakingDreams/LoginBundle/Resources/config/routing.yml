@@ -5,3 +5,7 @@ login_usuario:
 login_homepage:
     path:     /
     defaults: { _controller: LoginBundle:Default:showView }
+    
+loginalgo:
+    path:     /cualquiera
+    defaults: { _controller: LoginBundle:Default:login }
