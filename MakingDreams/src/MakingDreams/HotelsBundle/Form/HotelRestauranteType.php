@@ -18,7 +18,8 @@ class HotelRestauranteType extends AbstractType
             ->add('nombre')
             ->add('direccion')
             ->add('servicios')
-            ->add('tipo')
+           ->add('tipo', 'choice', array('choices' => array('1' => 'Restaurante', '2'=> 'Hotel'),
+            'required'  => false))
             ->add('direccionMapa')
             ->add('provincia')
             ->add('destinoAsociado')

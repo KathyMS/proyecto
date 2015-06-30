@@ -1,51 +1,76 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-    <h1>HotelRestaurante list</h1>
+    <div class="box col-md-12">
+        <div class="box-inner">
+            <div class="box-header well" data-original-title="">
+                <h2>Lista de Hoteles/Restaurantes</h2>
 
-    <table class="records_list">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nombre</th>
-                <th>Direccion</th>
-                <th>Servicios</th>
-                <th>Tipo</th>
-                <th>Direccionmapa</th>
-                <th>Provincia</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for entity in entities %}
-            <tr>
-                <td><a href="{{ path('hotelrestaurante_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-                <td>{{ entity.nombre }}</td>
-                <td>{{ entity.direccion }}</td>
-                <td>{{ entity.servicios }}</td>
-                <td>{{ entity.tipo }}</td>
-                <td>{{ entity.direccionMapa }}</td>
-                <td>{{ entity.provincia }}</td>
-                <td>
+            </div>
+            <div class="box-content">
+                <table class="table table-bordered table-striped table-condensed">
+                    <thead>
+                        <tr>
+
+                            <th>Id</th>
+                            <th>Nombre</th>
+                            <th>Direccion</th>
+                            <th>Servicios</th>
+                            <th>Tipo</th>
+                            <th>Direccionmapa</th>
+                            <th>Provincia</th>
+                            <th>Actions</th>
+
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for entity in entities %}
+                            <tr>
+                                <td><a href="{{ path('hotelrestaurante_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                                <td>{{ entity.nombre }}</td>
+                                <td>{{ entity.direccion }}</td>
+                                <td>{{ entity.servicios }}</td>
+                                {%if entity.tipo== 1%}
+                                    <td> Restaurante </td>
+                                {%endif%}
+                                {%if entity.tipo== 2%}
+                                    <td> Hotel </td>
+                                {%endif%}
+                                <td>{{ entity.direccionMapa }}</td>
+                                <td>{{ entity.provincia }}</td>
+                                <td>
+                                    <ul>
+                                        <li>
+                                            <a href="{{ path('hotelrestaurante_show', { 'id': entity.id }) }}">show</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ path('hotelrestaurante_edit', { 'id': entity.id }) }}">edit</a>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        {% endfor %}
+
+                    </tbody>
+                </table>
+                <center>
+                    <ul class="pagination pagination-centered">
+                        <li><a href="#">Anterior</a></li>
+
+                    </ul>
+                </center>
+            </div>
+            <center>
                 <ul>
-                    <li>
-                        <a href="{{ path('hotelrestaurante_show', { 'id': entity.id }) }}">show</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('hotelrestaurante_edit', { 'id': entity.id }) }}">edit</a>
-                    </li>
-                </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
 
-        <ul>
-        <li>
-            <a href="{{ path('hotelrestaurante_new') }}">
-                Create a new entry
-            </a>
-        </li>
-    </ul>
-    {% endblock %}
+                    <a href="{{ path('hotelrestaurante_new') }}">
+                        Crear un nuevo Hotel/Restaurante
+                    </a>
+
+                </ul>
+            </center>
+        </div>
+
+    </div><!--/span-->
+{% endblock %}

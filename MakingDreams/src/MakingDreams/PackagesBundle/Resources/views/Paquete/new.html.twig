@@ -1,15 +1,76 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-    <h1>Paquete creation</h1>
+    <div class="box col-md-12">
+        <div class="box-inner">
+            <div class="box-header well" data-original-title="">
+                <h2>Crear Paquete</h2>
 
-    {{ form(form) }}
+            </div>
+            <center>
+                <div class="box-content">
+                    <table class="table table-bordered table-striped table-condensed">
+                        {{ form_start(form)}}
+                        {{form_errors(form)}}
+                        
+                        <tbody>
+                            <tr>
+                                <th style="width: 200px;"> Nombre </th>
+                                <td>{{form_widget(form.nombre)}}
+                                    {{ form_errors(form.nombre) }}</td>
+                            </tr>
+                            <tr>
+                                <th style="width: 200px;"> Descripcion </th>
+                                <td>{{form_widget(form.descripcion)}}
+                                    {{ form_errors(form.descripcion) }}</td>
+                            </tr>
+                            <tr>
+                                <th style="width: 200px;"> Precio </th>
+                                <td>{{form_widget(form.precio)}}
+                                    {{ form_errors(form.precio) }}</td>
+                            </tr>
+                            <tr>
+                                <th style="width: 200px;"> {{form_label(form.imagen)}}</th>
+                                <td>{{form_widget(form.imagen)}}
+                                    {{ form_errors(form.imagen) }}</td>
+                            </tr>
+                            <tr>
+                                <th style="width: 200px;"> Hotel </th>
+                                <td>{{form_widget(form.idHotel)}}
+                                    {{ form_errors(form.idHotel) }}</td>
+                            </tr>
+                            <tr>
+                                <th style="width: 200px;"> Restaurante </th>
+                                <td>{{form_widget(form.idRestaurante)}}
+                                    {{ form_errors(form.idRestaurante) }}</td>
+                            </tr>
+                            <tr>
+                                <th style="width: 200px;"> Usuario </th>
+                                <td>{{form_widget(form.idUsuario)}}
+                                    {{ form_errors(form.idUsuario) }}</td>
+                            </tr>
+                        </tbody>
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('paquete') }}">
-            Back to the list
-        </a>
-    </li>
-</ul>
+                    </table>
+               
+                <table>
+                    <tr>
+
+                        <td> {{form_widget(form.submit)}}
+                        </td>
+                        <td> <a href="{{ path('paquete') }}" class="btn btn-primary">
+                                Atras
+                            </a>
+                        </td>
+
+                    </tr>
+                </table><br>
+            
+                
+
+                {{ form_end(form)}}
+            </center>  
+        </div>
+    </div>
+
 {% endblock %}

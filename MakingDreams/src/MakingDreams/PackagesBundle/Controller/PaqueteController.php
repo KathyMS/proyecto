@@ -29,6 +29,7 @@ class PaqueteController extends Controller
             'entities' => $entities,
         ));
     }
+    
     /**
      * Creates a new Paquete entity.
      *
@@ -67,7 +68,7 @@ class PaqueteController extends Controller
             'method' => 'POST',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Create'));
+        $form->add('submit', 'submit', array('label' => 'Crear', 'attr' => array('class' => 'btn btn-primary')));
 
         return $form;
     }
@@ -147,7 +148,7 @@ class PaqueteController extends Controller
             'method' => 'PUT',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Update'));
+        $form->add('submit', 'submit', array('label' => 'Update', 'attr' => array('class' => 'btn btn-primary')));
 
         return $form;
     }
@@ -217,7 +218,7 @@ class PaqueteController extends Controller
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('paquete_delete', array('id' => $id)))
             ->setMethod('DELETE')
-            ->add('submit', 'submit', array('label' => 'Delete'))
+            ->add('submit', 'submit', array('label' => 'Delete', 'attr' => array('class' => 'btn btn-primary')))
             ->getForm()
         ;
     }

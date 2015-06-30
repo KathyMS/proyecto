@@ -29,6 +29,10 @@ restaurants:
 packages:
     resource: "@PackagesBundle/Resources/config/routing.yml"
     prefix:   /packages
+    
+hotels_hotelrestaurante:
+    resource: "@HotelsBundle/Resources/config/routing/hotelrestaurante.yml"
+    prefix:   /hotelrestaurante
 
 init:
     path: /

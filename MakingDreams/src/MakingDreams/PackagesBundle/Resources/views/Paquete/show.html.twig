@@ -1,11 +1,15 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-    <h1>Paquete</h1>
-
-    <table class="record_properties">
-        <tbody>
-            <tr>
+     <div class="box col-md-12">
+        <div class="box-inner">
+            <div class="box-header well" data-original-title="">
+                <h2>Hotel/Restaurante</h2>
+            </div>
+            <div class="box-content">
+                <table class="table table-bordered table-striped table-condensed">
+                    <tbody>
+                        <tr>
                 <th>Id</th>
                 <td>{{ entity.id }}</td>
             </tr>
@@ -25,20 +29,33 @@
                 <th>Imagen</th>
                 <td>{{ entity.imagen }}</td>
             </tr>
-        </tbody>
-    </table>
+                    </tbody>
+                </table>
+            </div>
+            <center>
+                <table>
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('paquete') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>
-        <a href="{{ path('paquete_edit', { 'id': entity.id }) }}">
-            Edit
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+                    <ul class="record_actions">
+                        <td>
+                            <a href="{{ path('paquete') }}" class="btn btn-primary">
+                                Volver
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{{ path('paquete_edit', { 'id': entity.id }) }}" class="btn btn-primary">
+                                Editar
+                            </a>
+                        </td>
+
+                        {{ form_start(delete_form)}}
+                        <td>      
+                            {{ form_widget(delete_form) }} 
+                        </td>
+                        {{ form_end(delete_form)}}
+
+                    </ul>
+                    </td>
+                </table><br>
+            </center>
+    
 {% endblock %}

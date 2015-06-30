@@ -4,7 +4,6 @@ namespace MakingDreams\RestaurantsBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-
 use MakingDreams\RestaurantsBundle\Entity\HotelRestaurante;
 use MakingDreams\RestaurantsBundle\Form\HotelRestauranteType;
 
@@ -12,29 +11,27 @@ use MakingDreams\RestaurantsBundle\Form\HotelRestauranteType;
  * HotelRestaurante controller.
  *
  */
-class HotelRestauranteController extends Controller
-{
+class HotelRestauranteController extends Controller {
 
     /**
      * Lists all HotelRestaurante entities.
      *
      */
-    public function indexAction()
-    {
+    public function indexAction() {
         $em = $this->getDoctrine()->getManager();
 
         $entities = $em->getRepository('RestaurantsBundle:HotelRestaurante')->findAll();
 
         return $this->render('RestaurantsBundle:HotelRestaurante:index.html.twig', array(
-            'entities' => $entities,
+                    'entities' => $entities,
         ));
     }
+
     /**
      * Creates a new HotelRestaurante entity.
      *
      */
-    public function createAction(Request $request)
-    {
+    public function createAction(Request $request) {
         $entity = new HotelRestaurante();
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
@@ -48,8 +45,8 @@ class HotelRestauranteController extends Controller
         }
 
         return $this->render('RestaurantsBundle:HotelRestaurante:new.html.twig', array(
-            'entity' => $entity,
-            'form'   => $form->createView(),
+                    'entity' => $entity,
+                    'form' => $form->createView(),
         ));
     }
 
@@ -60,15 +57,13 @@ class HotelRestauranteController extends Controller
      *
      * @return \Symfony\Component\Form\Form The form
      */
-    private function createCreateForm(HotelRestaurante $entity)
-    {
+    private function createCreateForm(HotelRestaurante $entity) {
         $form = $this->createForm(new HotelRestauranteType(), $entity, array(
             'action' => $this->generateUrl('hotelrestaurante_create'),
             'method' => 'POST',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Create'));
-
+        $form->add('submit', 'submit', array('label' => 'Crear', 'attr' => array('class' => 'btn btn-primary')));
         return $form;
     }
 
@@ -76,14 +71,13 @@ class HotelRestauranteController extends Controller
      * Displays a form to create a new HotelRestaurante entity.
      *
      */
-    public function newAction()
-    {
+    public function newAction() {
         $entity = new HotelRestaurante();
-        $form   = $this->createCreateForm($entity);
+        $form = $this->createCreateForm($entity);
 
         return $this->render('RestaurantsBundle:HotelRestaurante:new.html.twig', array(
-            'entity' => $entity,
-            'form'   => $form->createView(),
+                    'entity' => $entity,
+                    'form' => $form->createView(),
         ));
     }
 
@@ -91,8 +85,7 @@ class HotelRestauranteController extends Controller
      * Finds and displays a HotelRestaurante entity.
      *
      */
-    public function showAction($id)
-    {
+    public function showAction($id) {
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('RestaurantsBundle:HotelRestaurante')->find($id);
@@ -104,8 +97,8 @@ class HotelRestauranteController extends Controller
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('RestaurantsBundle:HotelRestaurante:show.html.twig', array(
-            'entity'      => $entity,
-            'delete_form' => $deleteForm->createView(),
+                    'entity' => $entity,
+                    'delete_form' => $deleteForm->createView(),
         ));
     }
 
@@ -113,8 +106,7 @@ class HotelRestauranteController extends Controller
      * Displays a form to edit an existing HotelRestaurante entity.
      *
      */
-    public function editAction($id)
-    {
+    public function editAction($id) {
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('RestaurantsBundle:HotelRestaurante')->find($id);
@@ -127,36 +119,34 @@ class HotelRestauranteController extends Controller
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('RestaurantsBundle:HotelRestaurante:edit.html.twig', array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
+                    'entity' => $entity,
+                    'edit_form' => $editForm->createView(),
+                    'delete_form' => $deleteForm->createView(),
         ));
     }
 
     /**
-    * Creates a form to edit a HotelRestaurante entity.
-    *
-    * @param HotelRestaurante $entity The entity
-    *
-    * @return \Symfony\Component\Form\Form The form
-    */
-    private function createEditForm(HotelRestaurante $entity)
-    {
+     * Creates a form to edit a HotelRestaurante entity.
+     *
+     * @param HotelRestaurante $entity The entity
+     *
+     * @return \Symfony\Component\Form\Form The form
+     */
+    private function createEditForm(HotelRestaurante $entity) {
         $form = $this->createForm(new HotelRestauranteType(), $entity, array(
             'action' => $this->generateUrl('hotelrestaurante_update', array('id' => $entity->getId())),
             'method' => 'PUT',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Update'));
-
+        $form->add('submit', 'submit', array('label' => 'Update', 'attr' => array('class' => 'btn btn-primary')));
         return $form;
     }
+
     /**
      * Edits an existing HotelRestaurante entity.
      *
      */
-    public function updateAction(Request $request, $id)
-    {
+    public function updateAction(Request $request, $id) {
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('RestaurantsBundle:HotelRestaurante')->find($id);
@@ -176,17 +166,17 @@ class HotelRestauranteController extends Controller
         }
 
         return $this->render('RestaurantsBundle:HotelRestaurante:edit.html.twig', array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
+                    'entity' => $entity,
+                    'edit_form' => $editForm->createView(),
+                    'delete_form' => $deleteForm->createView(),
         ));
     }
+
     /**
      * Deletes a HotelRestaurante entity.
      *
      */
-    public function deleteAction(Request $request, $id)
-    {
+    public function deleteAction(Request $request, $id) {
         $form = $this->createDeleteForm($id);
         $form->handleRequest($request);
 
@@ -212,13 +202,13 @@ class HotelRestauranteController extends Controller
      *
      * @return \Symfony\Component\Form\Form The form
      */
-    private function createDeleteForm($id)
-    {
+    private function createDeleteForm($id) {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('hotelrestaurante_delete', array('id' => $id)))
-            ->setMethod('DELETE')
-            ->add('submit', 'submit', array('label' => 'Delete'))
-            ->getForm()
+                        ->setAction($this->generateUrl('hotelrestaurante_delete', array('id' => $id)))
+                        ->setMethod('DELETE')
+                        ->add('submit', 'submit', array('label' => 'Delete', 'attr' => array('class' => 'btn btn-primary')))
+                        ->getForm()
         ;
     }
+
 }

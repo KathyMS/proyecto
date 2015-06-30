@@ -220,4 +220,7 @@ class HotelRestaurante
     {
         return $this->destinoAsociado;
     }
+    public function __toString() {
+        return $this->getNombre(). " ".$this->getProvincia();
+    }
 }
