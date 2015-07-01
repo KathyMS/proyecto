@@ -57,6 +57,7 @@
                 <div id="main-nav" class="collapse navbar-collapse">
                     <ul class="nav navbar-nav" id="mainNav">
                     {% block menu %}{% endblock %}
+                    {% if (app.session.get('user')) is null %}
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Iniciar sesión<span class="caret"></span></a>
                         <ul class="dropdown-menu pull-right" style="min-width:300px" role="menu">
@@ -64,7 +65,7 @@
                                 <div class="alert alert-info">
                                     Por favor inicie sesión con su usuario y contraseña
                                 </div>
-                                <form id="signin" class="well-lg" role="form" action="{{ path('loginalgo') }}" method="post">
+                                <form id="signin" class="well-lg" role="form" action="{{ path('log_in') }}" method="post">
 
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
@@ -82,6 +83,9 @@
                             </div>
                         </ul>
                     </li>
+                    {% else %}
+                        <li><a href="{{ path('log_out') }}" class="scroll-link">Cerrar sesión</a></li>
+                    {% endif%}
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span><span class="caret"></span></a>
                         <ul class="dropdown-menu" aria-labelledby="Temas">
@@ -163,5 +167,5 @@
         });
     });
 </script>
-
+{% block javascripts %}{% endblock %}
 </html>

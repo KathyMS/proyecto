@@ -6,6 +6,10 @@ login_homepage:
     path:     /
     defaults: { _controller: LoginBundle:Default:showView }
     
-loginalgo:
-    path:     /cualquiera
+log_in:
+    path:     /log_in
     defaults: { _controller: LoginBundle:Default:login }
+    
+log_out:
+    path:     /log_out
+    defaults: { _controller: LoginBundle:Default:logout }

@@ -6,10 +6,6 @@ login:
     resource: "@LoginBundle/Resources/config/routing.yml"
     prefix:   /login
 
-main:
-    resource: "@MainBundle/Resources/config/routing.yml"
-    prefix:   /main
-
 about:
     resource: "@AboutBundle/Resources/config/routing.yml"
     prefix:   /about

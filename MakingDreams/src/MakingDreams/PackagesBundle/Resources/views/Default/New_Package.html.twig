@@ -1,4 +1,4 @@
-{% extends 'PackagesBundle:Default:Template.html.twig' %}
+{% extends app.request.isXmlHttpRequest ? '::ajax.html.twig' : 'PackagesBundle:Default:Template.html.twig' %}
 {% block container %}
     <form class="form-horizontal" role="form">
         <div class="form-group">

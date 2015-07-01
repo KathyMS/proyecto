@@ -6,7 +6,7 @@
     <li><a href="{{ path('destinations_homepage') }}" class="scroll-link">Destinos</a></li>
     <li><a href="{{ path('about_homepage') }}" class="scroll-link">Sobre nosotros</a></li>
     {% endblock %}
-{% block body %} 
+    {% block body %} 
     <section id="packages" class="secPad">
         <div class="container container-fluid">
             <div class="row">
@@ -17,13 +17,16 @@
                             <li class="list-group-item">
                                 <span class="badge">1</span>
                                 <h5 class="list-group-item-heading">Mis paquetes</h5>
-                                <a href="{{ path('package_page') }}" class="list-group-item">Coliseo romano</a>
-                                <a href="{{ path('newpackage_page') }}" class="list-group-item">Nuevo</a>
+                                <a id="link_change" href="{{ path('package_page') }}" class="list-group-item">Coliseo romano</a>
+                                <a id="link_change" href="{{ path('newpackage_page') }}" class="list-group-item">Nuevo</a>
                             </li>
                         </ul>
-                        <div class="list-group">
-                            <a href="{{ path('newpackage_page') }}" class="list-group-item">Crear paquete</a>
-                        </div>
+                        {% set usuario = app.session.get('user')%}
+                        {%  if (usuario.tipo) %}
+                            <div class="list-group">
+                                <a id="link_change" href="{{ path('newpackage_page') }}" class="list-group-item">Crear paquete</a>
+                            </div>
+                        {% endif %}
                     </div>
                     <!--Affix end-->
                 </div>
@@ -80,7 +83,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="container well col-md-12">
+                            <div id="change" class="container well col-md-12">
                             {% block container %}{% endblock %}
                             <!--Content end-->
                         </div>
@@ -90,4 +93,12 @@
         </div>
     </div>
 </section>
+{% endblock %}
+{% block javascripts %}
+    <script type="text/javascript">
+        $('#link_change').click(function (event) {
+            event.preventDefault();
+            $('#change').load($(this).attr('href'));
+        });
+    </script>
 {% endblock %}

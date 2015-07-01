@@ -21,7 +21,6 @@ class AppKernel extends Kernel
             new MakingDreams\HotelsBundle\HotelsBundle(),
             new MakingDreams\DestinationsBundle\DestinationsBundle(),
             new MakingDreams\AboutBundle\AboutBundle(),
-            new MakingDreams\MainBundle\MainBundle(),
             new MakingDreams\LoginBundle\LoginBundle(),
             new MakingDreams\ConfigurationsBundle\ConfigurationsBundle(),
         );

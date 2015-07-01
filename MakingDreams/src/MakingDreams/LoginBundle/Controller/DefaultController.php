@@ -15,18 +15,18 @@ class DefaultController extends Controller {
         if ($request->getMethod() == "POST") {
             $usuario = $request->get("email");
             $pass = $request->get("password");
-            echo $usuario . "------------" . $pass;
-            $user = $this->getDoctrine()->getRepository('LoginBundle:Usuario')->findOneBy(array("correo" => $usuario, "contrasena" => $pass));
 
-            echo $user->getNombre();
+            $user = $this->getDoctrine()->getRepository('LoginBundle:Usuario')->findOneBy(array("correo" => $usuario, "contrasena" => $pass));
             if ($user) {
                 $session = $request->getSession();
                 $session->set("id", $user->getId());
                 $session->set("correo", $user->getCorreo());
+                $session->set('user', $user);
 
-                if ($user->getTipo() == 1 && strcasecmp($user->getContrasena(), $pass) == 0) {
-                    return $this->redirect($this->generateUrl("packages_homepage"));
-                }
+                return $this->redirect($this->generateUrl("packages_homepage"));
+//                if ($user->getTipo() == 1 && strcasecmp($user->getContrasena(), $pass) == 0) {
+//                    return $this->redirect($this->generateUrl("packages_homepage"));
+//                }
             } else {
                 $this->get('session')->getFlashBag()->add(
                         'mensaje', 'Los datos no son validos'
@@ -34,11 +34,12 @@ class DefaultController extends Controller {
                 return $this->redirect($this->generateUrl("login_homepage"));
             }
         }//fin if
-        return $this->render('LoginBundle:Default:login.html.twig');
+        return $this->redirect($this->generateUrl("login_homepage"));
     }
 
-//fon loginAction
-}
+    public function logoutAction(Request $request) {
+        $request->getSession()->remove('user');
+        return $this->redirect($this->generateUrl("login_homepage"));
+    }
 
-//fin class
-    
+}

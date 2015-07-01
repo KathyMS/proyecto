@@ -8,10 +8,9 @@ use Symfony\Component\HttpFoundation\Request;
 class DefaultController extends Controller {
 
     public function showViewAction(Request $request) {
-
         $session = $request->getSession();
 
-        if ($session->has("id")) {
+        if ($session->has('user')) {
             return $this->render('PackagesBundle:Default:packages.html.twig');
         } else {
             $this->get('session')->getFlashBag()->add(
@@ -22,10 +21,10 @@ class DefaultController extends Controller {
         }
     }
 
-    public function showPackageAction() {
+    public function showPackageAction(Request $request) {
         $session = $request->getSession();
 
-        if ($session->has("id")) {
+        if ($session->has('user')) {
             return $this->render('PackagesBundle:Default:package.html.twig');
         } else {
             $this->get('session')->getFlashBag()->add(
@@ -36,10 +35,10 @@ class DefaultController extends Controller {
         }
     }
 
-    public function showNewPackageAction() {
+    public function showNewPackageAction(Request $request) {
         $session = $request->getSession();
 
-        if ($session->has("id")) {
+        if ($session->has('user')) {
             return $this->render('PackagesBundle:Default:new_package.html.twig');
         } else {
             $this->get('session')->getFlashBag()->add(
@@ -50,10 +49,10 @@ class DefaultController extends Controller {
         }
     }
 
-    public function showEditPackageAction() {
+    public function showEditPackageAction(Request $request) {
         $session = $request->getSession();
 
-        if ($session->has("id")) {
+        if ($session->has('user')) {
             return $this->render('PackagesBundle:Default:edit_package.html.twig');
         } else {
             $this->get('session')->getFlashBag()->add(
