@@ -1,4 +1,8 @@
-hotelrestaurante:
+agregar_hotel:
+    path:     /{id}/agregar_hotel
+    defaults: { _controller: "HotelsBundle:HotelRestaurante:agregar_hotel" }
+
+hotelrestaurantehotel:
     path:     /
     defaults: { _controller: "HotelsBundle:HotelRestaurante:index" }
 
@@ -28,3 +32,8 @@ hotelrestaurante_delete:
     path:     /{id}/delete
     defaults: { _controller: "HotelsBundle:HotelRestaurante:delete" }
     methods:  [POST, DELETE]
+
+imagenHot:
+    pattern: /{id}/imagenHot
+    defaults: { _controller: "HotelsBundle:HotelRestaurante:imagenHot" }
+    

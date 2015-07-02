@@ -1,6 +1,6 @@
 hotels_hotelrestaurante:
     resource: "@HotelsBundle/Resources/config/routing/hotelrestaurante.yml"
-    prefix:   /hotelrestaurante
+    prefix:   /hotelrestaurantehotel
 
 hotels_homepage:
     path:     /

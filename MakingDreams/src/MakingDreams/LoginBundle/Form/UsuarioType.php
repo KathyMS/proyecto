@@ -21,7 +21,8 @@ class UsuarioType extends AbstractType
             ->add('correo')
             ->add('contrasena')
             ->add('telefono')
-            ->add('tipo')
+            ->add('tipo', 'choice', array('choices' => array( true => 'Administrador', false=> 'Usuario'),
+            'required'  => false))
         ;
     }
     

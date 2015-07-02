@@ -33,6 +33,106 @@ class HotelRestauranteController extends Controller
      * Creates a new HotelRestaurante entity.
      *
      */
+     public function agregar_hotelAction($id) {
+        $em = $this->getDoctrine()->getManager();
+
+        $entity = $em->getRepository('HotelsBundle:HotelRestaurante')->find($id);
+        
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find HotelRestaurante entity.');
+        }
+      
+            return $this->render('HotelsBundle:HotelRestaurante:editar.html.twig', array(
+                    'entity' => $entity));
+        
+    }
+
+    public function imagenHotAction($id) {
+//IMAGEN
+        $root = getcwd();
+        $target_dir = $root . '/uploads/';
+        $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+        $target_file2 = $target_dir . basename($_FILES["fileToUpload2"]["name"]);
+        $target_file3 = $target_dir . basename($_FILES["fileToUpload3"]["name"]);
+        $uploadOk = 1;
+        $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
+        $imageFileType2 = pathinfo($target_file2, PATHINFO_EXTENSION);
+        $imageFileType3 = pathinfo($target_file3, PATHINFO_EXTENSION);
+// Check if image file is a actual image or fake image
+        if (isset($_POST["submit"])) {
+//            $valor = $_POST["text"];
+            $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+            $check2 = getimagesize($_FILES["fileToUpload2"]["tmp_name"]);
+            $check3 = getimagesize($_FILES["fileToUpload3"]["tmp_name"]);
+            if (($check !== false) && ($check2 !== false) && ($check3 !== false)) {
+                echo "File is an image - " . $check["mime"] . ".";
+                $uploadOk = 1;
+            } else {
+                echo "File is not an image.";
+                $uploadOk = 0;
+            }
+        }
+// Check if file already exists
+        if ((file_exists($target_file)) && (file_exists($target_file2)) && (file_exists($target_file3))) {
+            echo "Sorry, file already exists.";
+            $uploadOk = 0;
+        }
+// Check file size
+        if (($_FILES["fileToUpload"]["size"] > 500000) && ($_FILES["fileToUpload2"]["size"] > 500000) &&($_FILES["fileToUpload3"]["size"] > 500000)) {
+            echo "Sorry, your file is too large.";
+            $uploadOk = 0;
+        }
+// Allow certain file formats
+        if (($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif") &&
+             ($imageFileType2 != "jpg" && $imageFileType2 != "png" && $imageFileType2 != "jpeg" && $imageFileType2 != "gif") &&
+             ($imageFileType3 != "jpg" && $imageFileType3 != "png" && $imageFileType3 != "jpeg" && $imageFileType3 != "gif")) {
+            echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+            $uploadOk = 0;
+        }
+// Check if $uploadOk is set to 0 by an error
+        if ($uploadOk == 0) {
+            echo "Sorry, your file was not uploaded.";
+// if everything is ok, try to upload file
+        } else {
+            if ((move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) &&
+                (move_uploaded_file($_FILES["fileToUpload2"]["tmp_name"], $target_file2)) &&
+                (move_uploaded_file($_FILES["fileToUpload3"]["tmp_name"], $target_file3))) {
+                
+                echo "The file " . basename($_FILES["fileToUpload"]["name"]) . " has been uploaded.";
+                
+                $em = $this->getDoctrine()->getManager();
+                $img=$em->getRepository('HotelsBundle:ImagenesRestHot')->findOneByIdimagenesRestHot($id);
+                
+                if(!$img){
+                $idRestHotel = $em->getRepository('HotelsBundle:HotelRestaurante')->find($id);
+                $imRest = new \MakingDreams\HotelsBundle\Entity\ImagenesRestHot();
+                $imRest->setImagen1($target_file);
+                $imRest->setImagen2($target_file2);
+                $imRest->setImagen3($target_file3);
+                $imRest->setIdimagenesRestHot($idRestHotel);
+
+                $em->persist($imRest);
+                $em->flush();
+                
+                 echo "se inserto ";
+                }
+                else{
+                $img->setImagen1($target_file);    
+                $img->setImagen2($target_file2);
+                $img->setImagen3($target_file3);
+                $em->persist($img);
+                $em->flush();  
+                
+                 echo "se actualizo ";
+                }
+            } else {
+                echo "Sorry, there was an error uploading your file.";
+            }
+        }
+        return $this->render('HotelsBundle:HotelRestaurante:editar.html.twig');
+    }
+
+//image
     public function createAction(Request $request)
     {
         $entity = new HotelRestaurante();

@@ -1,48 +1,66 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-    <h1>Destino</h1>
+      <div class="box col-md-12">
+        <div class="box-inner">
+            <div class="box-header well" data-original-title="">
+                <h2>Destino</h2>
+            </div>
+            <div class="box-content">
+                <table class="table table-bordered table-striped table-condensed">
+                    <tbody>
+                        <tr>
+                            <th style="width: 200px;">Id</th>
+                            <td>{{ entity.id }}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 200px;">Nombre</th>
+                            <td>{{ entity.nombre }}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 200px;">Direccion</th>
+                            <td>{{ entity.direccion }}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 200px;">Reseña Historica</th>
+                            <td>{{ entity.resenaHistorica }}</td>
+                        </tr>
+                       
+                        <tr>
+                            <th style="width: 200px;">Direccionmapa</th>
+                            <td>{{ entity.direccionMapa }}</td>
+                        </tr>
+                        <tr>
+                            <th style="width: 200px;">Provincia</th>
+                            <td>{{ entity.provincia }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <center>
+                <table>
 
-    <table class="record_properties">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ entity.id }}</td>
-            </tr>
-            <tr>
-                <th>Nombre</th>
-                <td>{{ entity.nombre }}</td>
-            </tr>
-            <tr>
-                <th>Direccion</th>
-                <td>{{ entity.direccion }}</td>
-            </tr>
-            <tr>
-                <th>Resenahistorica</th>
-                <td>{{ entity.resenaHistorica }}</td>
-            </tr>
-            <tr>
-                <th>Direccionmapa</th>
-                <td>{{ entity.direccionMapa }}</td>
-            </tr>
-            <tr>
-                <th>Provincia</th>
-                <td>{{ entity.provincia }}</td>
-            </tr>
-        </tbody>
-    </table>
+                    <ul class="record_actions">
+                        <td>
+                            <a href="{{ path('destino') }}" class="btn btn-primary">
+                                Volver
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{{ path('destino_edit', { 'id': entity.id }) }}" class="btn btn-primary">
+                                Editar
+                            </a>
+                        </td>
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('destino') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>
-        <a href="{{ path('destino_edit', { 'id': entity.id }) }}">
-            Edit
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+                        {{ form_start(delete_form)}}
+                        <td>      
+                            {{ form_widget(delete_form) }} 
+                        </td>
+                        {{ form_end(delete_form)}}
+
+                    </ul>
+                    </td>
+                </table><br>
+            </center>
+    
 {% endblock %}

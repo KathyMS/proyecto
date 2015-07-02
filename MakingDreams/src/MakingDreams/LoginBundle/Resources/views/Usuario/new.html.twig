@@ -1,15 +1,73 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-    <h1>Usuario creation</h1>
+     <div class="box col-md-12">
+        <div class="box-inner">
+            <div class="box-header well" data-original-title="">
+                <h2>Crear Usuario</h2>
 
-    {{ form(form) }}
+            </div>
+            <center>
+                <div class="box-content">
+                    <table class="table table-bordered table-striped table-condensed">
+                        {{ form_start(form)}}
+                        {{form_errors(form)}}
+                        <tbody>
+                            <tr>
+                                <th style="width: 200px;"> Nombre</th>
+                                <td>{{form_widget(form.nombre)}}
+                                    {{ form_errors(form.nombre) }}</td>
+                            </tr>
+                            <tr>
+                                <th style="width: 200px;"> Apellidos </th>
+                                <td>{{form_widget(form.apellidos)}}
+                                    {{ form_errors(form.apellidos) }}</td>
+                            </tr>
+                            <tr>
+                                <th style="width: 200px;"> Direccion </th>
+                                <td>{{form_widget(form.direccion)}}
+                                    {{ form_errors(form.direccion) }}</td>
+                            </tr>
+                            <tr>
+                                <th style="width: 200px;"> Correo </th>
+                                <td>{{form_widget(form.correo)}}
+                                    {{ form_errors(form.correo) }}</td>
+                            </tr>
+                            <tr>
+                                <th style="width: 200px;"> Contraseña </th>
+                                <td>{{form_widget(form.contrasena)}}
+                                    {{ form_errors(form.contrasena) }}</td>
+                            </tr>
+                             <tr>
+                                <th style="width: 200px;"> Telefono </th>
+                                <td>{{form_widget(form.telefono)}}
+                                    {{ form_errors(form.telefono) }}</td>
+                            </tr>
+                             <tr>
+                                <th style="width: 200px;"> Tipo </th>
+                                <td>{{form_widget(form.tipo)}}
+                                    {{ form_errors(form.tipo) }}</td>
+                            </tr>
+                        </tbody>
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('usuario') }}">
-            Back to the list
-        </a>
-    </li>
-</ul>
+                    </table>
+                </div>
+                <table>
+                    <tr>
+
+                        <td> {{form_widget(form.submit)}}
+                        </td>
+                        <td> <a href="{{ path('usuario') }}" class="btn btn-primary">
+                                Atras
+                            </a>
+                        </td>
+
+                    </tr>
+                </table><br>
+
+                {{ form_end(form)}}
+            </center>  
+        </div>
+    </div>
+
 {% endblock %}

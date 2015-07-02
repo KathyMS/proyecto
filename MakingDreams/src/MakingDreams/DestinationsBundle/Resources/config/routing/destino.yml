@@ -1,3 +1,7 @@
+agregar_destino:
+    path:     /{id}/agregar_destino
+    defaults: { _controller: "DestinationsBundle:Destino:agregar_destino" }
+
 destino:
     path:     /
     defaults: { _controller: "DestinationsBundle:Destino:index" }
@@ -28,3 +32,7 @@ destino_delete:
     path:     /{id}/delete
     defaults: { _controller: "DestinationsBundle:Destino:delete" }
     methods:  [POST, DELETE]
+    
+imagenDest:
+    pattern: /{id}/imagenDest
+    defaults: { _controller: "DestinationsBundle:Destino:imagenDest" }
