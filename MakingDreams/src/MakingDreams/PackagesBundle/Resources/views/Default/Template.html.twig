@@ -82,7 +82,7 @@
                                 </div>
                                 <div class="col-md-3 pull-right">
                                     <select class="form-control order">
-                                        <option {% if(app.session.get('option') == 1) %}selected="selected"{% endif%}  value="1">Mas popular</option>
+                                        <option {% if(app.session.get('option') == 1) %}selected="selected"{% endif%} value="1">Mas popular</option>
                                         <option {% if(app.session.get('option') == 2) %}selected="selected"{% endif%} value="2">A-Z</option>
                                         <option {% if(app.session.get('option') == 3) %}selected="selected"{% endif%} value="3">Z-A</option>
                                     </select>
@@ -101,6 +101,7 @@
 {% endblock %}
 {% block javascripts %}
     <script type="text/javascript">
+        uri="{{ path('packages_homepage') }}";
         $(".link_change").click(function (event) {
             event.preventDefault();
             $("#change").load($(this).attr('href'));
@@ -113,26 +114,26 @@
                 type: 'POST',
                 data: $("#search").serialize(),
                 success: function (response) {
-                    console.log(response);
-                    //$("#change").html(response);
+                    uri = "{{ path('packages_search') }}";
+                    $("#change").html(response);
+                    console.log(uri);
                 },
                 error: function (error) {
-                    console.log(error);
                 }
             });
         });
 
         $(".order").change(function () {
-            var option = $(".search option:selected").val();
+            var option = $(".order option:selected").val();
+            console.log(uri);
             $.ajax({
-                url: "{{ path('packages_homepage') }}",
+                url: uri,
                 type: 'POST',
                 data: {'option': option},
                 success: function (response) {
                     $("#change").html(response);
                 },
                 error: function (error) {
-                    console.log(error);
                 }
             });
         });
