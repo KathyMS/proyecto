@@ -15,16 +15,19 @@
                     <div data-spy="affix" class="col-sm-2" data-offset-top="0">
                         <ul class="list-group">
                             <li class="list-group-item">
-                                <span class="badge">1</span>
+                                {% set size = paquetesPorUsuario|length %}
+                                <span class="badge">{{ size|raw }}</span>
                                 <h5 class="list-group-item-heading">Mis paquetes</h5>
-                                <a id="link_change" href="{{ path('package_page') }}" class="list-group-item">Coliseo romano</a>
-                                <a id="link_change" href="{{ path('newpackage_page') }}" class="list-group-item">Nuevo</a>
+                                {% for paquete in paquetesPorUsuario %}
+                                    <a href="{{ path('package_page') }}" class="list-group-item link_change">{{paquete.nombre}}</a>
+                                {% endfor %}
+                                <a href="{{ path('newpackage_page') }}" class="list-group-item link_change">Nuevo</a>
                             </li>
                         </ul>
                         {% set usuario = app.session.get('user')%}
                         {%  if (usuario.tipo) %}
                             <div class="list-group">
-                                <a id="link_change" href="{{ path('newpackage_page') }}" class="list-group-item">Crear paquete</a>
+                                <a href="{{ path('newpackage_page') }}" class="list-group-item link_change">Crear paquete</a>
                             </div>
                         {% endif %}
                     </div>
@@ -41,7 +44,7 @@
                             </div>
                             <div class="well container col-md-12">
                                 <div class="col-md-9 pull-left">
-                                    <div class="input-group">
+                                    <div class="input-group ">
                                         <div class="dropdown input-group-btn">
                                             <button href="#" class="dropdown-toggle btn" data-toggle="dropdown" role="button" aria-expanded="false">Avanzada<span class="caret"></span></button>
                                             <ul class="dropdown-menu" style="min-width:300px" role="menu">
@@ -69,17 +72,19 @@
                                                 </div>
                                             </ul>
                                         </div>
-                                        <input type="text" class="form-control" placeholder="Nombre">
-                                        <span class="input-group-btn">
-                                            <button class="btn btn-default" type="button">Buscar</button>
-                                        </span>
+                                        <form method="post" id="search" class="input-group col-xs-12">
+                                            <input name="nameSearch" type="text" class="form-control " placeholder="Nombre">
+                                            <span class="input-group-btn">
+                                                <button id="button" class="btn btn-default" type="button">Buscar</button>
+                                            </span>
+                                        </form>
                                     </div>
                                 </div>
                                 <div class="col-md-3 pull-right">
-                                    <select class="form-control">
-                                        <option value="">Mas popular</option>
-                                        <option value="">A-Z</option>
-                                        <option value="">Z-A</option>
+                                    <select class="form-control order">
+                                        <option {% if(app.session.get('option') == 1) %}selected="selected"{% endif%}  value="1">Mas popular</option>
+                                        <option {% if(app.session.get('option') == 2) %}selected="selected"{% endif%} value="2">A-Z</option>
+                                        <option {% if(app.session.get('option') == 3) %}selected="selected"{% endif%} value="3">Z-A</option>
                                     </select>
                                 </div>
                             </div>
@@ -96,9 +101,40 @@
 {% endblock %}
 {% block javascripts %}
     <script type="text/javascript">
-        $('#link_change').click(function (event) {
+        $(".link_change").click(function (event) {
             event.preventDefault();
-            $('#change').load($(this).attr('href'));
+            $("#change").load($(this).attr('href'));
+        });
+
+        $("#button").click(function (event) {
+            event.preventDefault();
+            $.ajax({
+                url: "{{ path('packages_search') }}",
+                type: 'POST',
+                data: $("#search").serialize(),
+                success: function (response) {
+                    console.log(response);
+                    //$("#change").html(response);
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            });
+        });
+
+        $(".order").change(function () {
+            var option = $(".search option:selected").val();
+            $.ajax({
+                url: "{{ path('packages_homepage') }}",
+                type: 'POST',
+                data: {'option': option},
+                success: function (response) {
+                    $("#change").html(response);
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            });
         });
     </script>
 {% endblock %}

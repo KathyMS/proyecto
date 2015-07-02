@@ -26,3 +26,6 @@ editpackage_page:
     path:     /edit
     defaults: { _controller: PackagesBundle:Default:showEditPackage }
         
+packages_search:
+    path:     /search
+    defaults: { _controller: PackagesBundle:Default:search }

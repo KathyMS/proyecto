@@ -1,99 +1,46 @@
-{% extends 'PackagesBundle:Default:Template.html.twig' %}
+{% extends app.request.isXmlHttpRequest ? '::ajax.html.twig' : 'PackagesBundle:Default:Template.html.twig' %}
 {% block container %}
-    <div class="col-md-3 col-sm-6">
-        <div class="cuadro_intro_hover " style="background-color:#cccccc;">
-            <p style="text-align:center;">
-                <img src="{{asset('resourses/images/pic/pic-1.jpg')}}" class="img-responsive" alt="">
-            </p>
-            <div class="caption">
-                <div class="blur"></div>
-                <div class="caption-text">
-                    <h3>Coliseo Romano</h3>
-                    <p>Este paquete esta disponible para todo publico</p>
-                    <a class=" btn btn-default" href="{{ path('package_page') }}"><span class="glyphicon glyphicon-plus"> Ver</span></a>
+    <div class="row">
+        {% for paquete in paquetes %}
+            <div class="col-md-3 col-sm-6">
+                <div class="cuadro_intro_hover " style="background-color:#cccccc;">
+                    <p style="text-align:center;">
+                        <img src="{{asset('resourses/images/pic/pic-1.jpg')}}" class="img-responsive" alt="">
+                    </p>
+                    <div class="caption">
+                        <div class="blur"></div>
+                        <div class="caption-text">
+                            <h3>{{paquete.nombre}}</h3>
+                            <p>{{paquete.descripcion}}</p>
+                            <a class=" btn btn-default" href="{{ path('package_page') }}"><span class="glyphicon glyphicon-plus"> Ver</span></a>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-
+        {% endfor %}
     </div>
-    <div class="col-md-3 col-sm-6">
-        <div class="cuadro_intro_hover " style="background-color:#cccccc;">
-            <p style="text-align:center;">
-                <img src="{{asset('resourses/images/pic/pic-1.jpg')}}" class="img-responsive" alt="">
-            </p>
-            <div class="caption">
-                <div class="blur"></div>
-                <div class="caption-text">
-                    <h3>Coliseo Romano</h3>
-                    <p>Este paquete esta disponible para todo publico</p>
-                    <a class=" btn btn-default" href="{{ path('package_page') }}"><span class="glyphicon glyphicon-plus"> Ver</span></a>
-                </div>
-            </div>
-        </div>
 
-    </div>
-    <div class="col-md-3 col-sm-6">
-        <div class="cuadro_intro_hover " style="background-color:#cccccc;">
-            <p style="text-align:center;">
-                <img src="{{asset('resourses/images/pic/pic-1.jpg')}}" class="img-responsive" alt="">
-            </p>
-            <div class="caption">
-                <div class="blur"></div>
-                <div class="caption-text">
-                    <h3>Coliseo Romano</h3>
-                    <p>Este paquete esta disponible para todo publico</p>
-                    <a class=" btn btn-default" href="{{ path('package_page') }}"><span class="glyphicon glyphicon-plus"> Ver</span></a>
-                </div>
-            </div>
-        </div>
+    <div class="row pull-right" style=" margin-right: 20px;">
+        <div class="pages">
+            <ul class="pagination">
+                {% for i in 1.. totalPage %}
+                    {%if loop.first and page!=1 %}
+                        <li>
+                            <a href="{{ path('packages_homepage',{'page':page-1}) }}" ><<</a>
+                        </li>
+                    {%endif%}
 
-    </div>
-    <div class="col-md-3 col-sm-6">
-        <div class="cuadro_intro_hover " style="background-color:#cccccc;">
-            <p style="text-align:center;">
-                <img src="{{asset('resourses/images/pic/pic-1.jpg')}}" class="img-responsive" alt="">
-            </p>
-            <div class="caption">
-                <div class="blur"></div>
-                <div class="caption-text">
-                    <h3>Coliseo Romano</h3>
-                    <p>Este paquete esta disponible para todo publico</p>
-                    <a class=" btn btn-default" href="{{ path('package_page') }}"><span class="glyphicon glyphicon-plus"> Ver</span></a>
-                </div>
-            </div>
-        </div>
+                    <li {%if page==loop.index %} class="active" {%endif%}>
+                        <a href="{{ path('packages_homepage',{'page':loop.index}) }}">{{loop.index}}</a>
+                    </li>
 
-    </div>
-    <div class="col-md-3 col-sm-6">
-        <div class="cuadro_intro_hover " style="background-color:#cccccc;">
-            <p style="text-align:center;">
-                <img src="{{asset('resourses/images/pic/pic-1.jpg')}}" class="img-responsive" alt="">
-            </p>
-            <div class="caption">
-                <div class="blur"></div>
-                <div class="caption-text">
-                    <h3>Coliseo Romano</h3>
-                    <p>Este paquete esta disponible para todo publico</p>
-                    <a class=" btn btn-default" href="{{ path('package_page') }}"><span class="glyphicon glyphicon-plus"> Ver</span></a>
-                </div>
-            </div>
-        </div>
-
-    </div>
-    <div class="col-md-3 col-sm-6">
-        <div class="cuadro_intro_hover " style="background-color:#cccccc;">
-            <p style="text-align:center;">
-                <img src="{{asset('resourses/images/pic/pic-1.jpg')}}" class="img-responsive" alt="">
-            </p>
-            <div class="caption">
-                <div class="blur"></div>
-                <div class="caption-text">
-                    <h3>Coliseo Romano</h3>
-                    <p>Este paquete esta disponible para todo publico</p>
-                    <a class=" btn btn-default" href="{{ path('package_page') }}"><span class="glyphicon glyphicon-plus"> Ver</span></a>
-                </div>
-            </div>
-        </div>
-
-    </div>
+                    {%if loop.last and page!=totalPage %}
+                        <li>
+                            <a href="{{ path('packages_homepage',{'page':page+1}) }}">>></a>
+                        </li>
+                    {%endif%}
+                {%endfor%}
+            </ul>
+        </div>     
+    </div> 
 {% endblock %}
