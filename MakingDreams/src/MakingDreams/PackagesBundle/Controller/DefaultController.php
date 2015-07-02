@@ -11,9 +11,12 @@ class DefaultController extends Controller {
         $session = $request->getSession();
 
         if ($session->has('user')) {
-            if (!$request->isXmlHttpRequest()) {
-                $paquetesPorUsuario = $this->packagesByUser($session->get('user'));
-            }
+            
+            $session->remove('nameSearch');
+            $session->remove('option');
+            $session->remove('page');
+            
+            $paquetesPorUsuario = $this->packagesByUser($session->get('user'));
 
             $totalCount = $this->getTotalRow();
 
@@ -99,7 +102,9 @@ class DefaultController extends Controller {
                 $name = $request->get('nameSearch');
 
                 if($name==null){
-                    echo 1;
+                    $name = $session->get('nameSearch');
+                }else {
+                    $session->set('nameSearch', $name);
                 }
                 
                 $totalCount = $this->getSearchTotalRow($name);

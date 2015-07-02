@@ -101,7 +101,6 @@
 {% endblock %}
 {% block javascripts %}
     <script type="text/javascript">
-        uri="{{ path('packages_homepage') }}";
         $(".link_change").click(function (event) {
             event.preventDefault();
             $("#change").load($(this).attr('href'));
@@ -114,7 +113,6 @@
                 type: 'POST',
                 data: $("#search").serialize(),
                 success: function (response) {
-                    uri = "{{ path('packages_search') }}";
                     $("#change").html(response);
                     console.log(uri);
                 },
@@ -125,9 +123,8 @@
 
         $(".order").change(function () {
             var option = $(".order option:selected").val();
-            console.log(uri);
             $.ajax({
-                url: uri,
+                url: "{{ path('packages_search') }}",
                 type: 'POST',
                 data: {'option': option},
                 success: function (response) {
