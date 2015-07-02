@@ -1,3 +1,11 @@
+package_imagen:
+    resource: "@PackagesBundle/Resources/config/routing/paquete.yml"
+    prefix:   /imagen
+    
+imagen:
+    resource: "@PackagesBundle/Resources/config/routing/paquete.yml"
+    prefix:   /imagen
+    
 packages_paquete:
     resource: "@PackagesBundle/Resources/config/routing/paquete.yml"
     prefix:   /paquete
@@ -17,3 +25,4 @@ newpackage_page:
 editpackage_page:
     path:     /edit
     defaults: { _controller: PackagesBundle:Default:showEditPackage }
+        

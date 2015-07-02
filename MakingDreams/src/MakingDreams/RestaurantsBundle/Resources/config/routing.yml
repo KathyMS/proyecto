@@ -1,3 +1,7 @@
+imagenRest:
+    resource: "@RestaurantsBundle/Resources/config/routing/hotelrestaurante.yml"
+    prefix:   /imagenRest
+    
 restaurants_hotelrestaurante:
     resource: "@RestaurantsBundle/Resources/config/routing/hotelrestaurante.yml"
     prefix:   /hotelrestaurante

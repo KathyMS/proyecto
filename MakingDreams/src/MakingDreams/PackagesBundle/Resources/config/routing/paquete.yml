@@ -1,3 +1,7 @@
+editar:
+    path:     /{id}/editar
+    defaults: { _controller: "PackagesBundle:Paquete:editar" }
+
 paquete:
     path:     /
     defaults: { _controller: "PackagesBundle:Paquete:index" }
@@ -28,3 +32,7 @@ paquete_delete:
     path:     /{id}/delete
     defaults: { _controller: "PackagesBundle:Paquete:delete" }
     methods:  [POST, DELETE]
+    
+imagen:
+    pattern: /{id}/imagen
+    defaults: { _controller: "PackagesBundle:Paquete:imagen" }
