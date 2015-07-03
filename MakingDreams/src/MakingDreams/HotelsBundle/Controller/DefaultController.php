@@ -23,11 +23,6 @@ class DefaultController extends Controller {
         ));
     }
 
-//    public function showViewAction()
-//    {
-//        return $this->render('HotelsBundle:Default:hotels.html.twig');
-//    }
-
     public function showHotelAction($id) {
         include_once('myDBC.php');
 
