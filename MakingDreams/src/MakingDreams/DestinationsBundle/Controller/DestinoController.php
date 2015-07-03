@@ -106,9 +106,9 @@ class DestinoController extends Controller
                 if(!$img){
                 $idDest = $em->getRepository('DestinationsBundle:Destino')->find($id);
                 $imDest = new \MakingDreams\DestinationsBundle\Entity\ImagenesDestino();
-                $imDest->setImagen1($target_file);
-                $imDest->setImagen2($target_file2);
-                $imDest->setImagen3($target_file3);
+                $imDest->setImagen1('/uploads/'.basename($_FILES["fileToUpload"]["name"]));
+                $imDest->setImagen2('/uploads/'.basename($_FILES["fileToUpload2"]["name"]));
+                $imDest->setImagen3('/uploads/'.basename($_FILES["fileToUpload3"]["name"]));
                 $imDest->setIdDestino($idDest);
 
                 $em->persist($imDest);
@@ -117,9 +117,9 @@ class DestinoController extends Controller
                  echo "se inserto ";
                 }
                 else{
-                $img->setImagen1($target_file);    
-                $img->setImagen2($target_file2);
-                $img->setImagen3($target_file3);
+                $img->setImagen1('/uploads/'.basename($_FILES["fileToUpload"]["name"]));    
+                $img->setImagen2('/uploads/'.basename($_FILES["fileToUpload2"]["name"]));
+                $img->setImagen3('/uploads/'.basename($_FILES["fileToUpload3"]["name"]));
                 $em->persist($img);
                 $em->flush();  
                 

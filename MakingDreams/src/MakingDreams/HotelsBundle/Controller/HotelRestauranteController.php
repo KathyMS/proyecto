@@ -106,9 +106,9 @@ class HotelRestauranteController extends Controller
                 if(!$img){
                 $idRestHotel = $em->getRepository('HotelsBundle:HotelRestaurante')->find($id);
                 $imRest = new \MakingDreams\HotelsBundle\Entity\ImagenesRestHot();
-                $imRest->setImagen1($target_file);
-                $imRest->setImagen2($target_file2);
-                $imRest->setImagen3($target_file3);
+                $imRest->setImagen1('/uploads/'.basename($_FILES["fileToUpload"]["name"]));
+                $imRest->setImagen2('/uploads/'.basename($_FILES["fileToUpload2"]["name"]));
+                $imRest->setImagen3('/uploads/'.basename($_FILES["fileToUpload3"]["name"]));
                 $imRest->setIdimagenesRestHot($idRestHotel);
 
                 $em->persist($imRest);
@@ -117,9 +117,9 @@ class HotelRestauranteController extends Controller
                  echo "se inserto ";
                 }
                 else{
-                $img->setImagen1($target_file);    
-                $img->setImagen2($target_file2);
-                $img->setImagen3($target_file3);
+                $img->setImagen1('/uploads/'.basename($_FILES["fileToUpload"]["name"]));    
+                $img->setImagen2('/uploads/'.basename($_FILES["fileToUpload2"]["name"]));
+                $img->setImagen3('/uploads/'.basename($_FILES["fileToUpload3"]["name"]));
                 $em->persist($img);
                 $em->flush();  
                 

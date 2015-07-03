@@ -1,7 +1,3 @@
-login_usuario:
-    resource: "@LoginBundle/Resources/config/routing/usuario.yml"
-    prefix:   /usuario
-
 login_homepage:
     path:     /
     defaults: { _controller: LoginBundle:Default:showView }

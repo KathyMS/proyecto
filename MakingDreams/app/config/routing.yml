@@ -25,11 +25,27 @@ restaurants:
 packages:
     resource: "@PackagesBundle/Resources/config/routing.yml"
     prefix:   /packages
-    
-#hotels_hotelrestaurante:
-#    resource: "@HotelsBundle/Resources/config/routing/hotelrestaurante.yml"
-#    prefix:   /hotelrestaurante
 
+packages_paquete:
+    resource: "@PackagesBundle/Resources/config/routing/paquete.yml"
+    prefix:   /paquete
+
+login_usuario:
+    resource: "@LoginBundle/Resources/config/routing/usuario.yml"
+    prefix:   /usuario
+    
+hotels_hotelrestaurante:
+    resource: "@HotelsBundle/Resources/config/routing/hotelrestaurante.yml"
+    prefix:   /hotelrestaurantehotel
+    
+restaurants_hotelrestaurante:
+    resource: "@RestaurantsBundle/Resources/config/routing/hotelrestaurante.yml"
+    prefix:   /hotelrestaurante
+    
+destinations_destino:
+    resource: "@DestinationsBundle/Resources/config/routing/destino.yml"
+    prefix:   /destino
+    
 init:
     path: /
     defaults:

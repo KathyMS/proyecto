@@ -23,10 +23,12 @@ class DefaultController extends Controller {
                 $session->set("correo", $user->getCorreo());
                 $session->set('user', $user);
 
-                return $this->redirect($this->generateUrl("packages_homepage"));
-//                if ($user->getTipo() == 1 && strcasecmp($user->getContrasena(), $pass) == 0) {
-//                    return $this->redirect($this->generateUrl("packages_homepage"));
-//                }
+                if ($user->getTipo() == 1) {
+                    return $this->render('LoginBundle:Default:login_admin.html.twig');
+                }
+                else{
+                    return $this->redirect($this->generateUrl("packages_homepage"));
+                }
             } else {
                 $this->get('session')->getFlashBag()->add(
                         'mensaje', 'Los datos no son validos'

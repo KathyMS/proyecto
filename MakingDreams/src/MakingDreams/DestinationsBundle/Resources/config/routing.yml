@@ -1,7 +1,3 @@
-destinations_destino:
-    resource: "@DestinationsBundle/Resources/config/routing/destino.yml"
-    prefix:   /destino
-
 destinations_homepage:
     path:     /
     defaults: { _controller: DestinationsBundle:Default:showView }

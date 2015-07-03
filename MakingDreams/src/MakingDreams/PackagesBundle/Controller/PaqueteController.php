@@ -90,7 +90,7 @@ class PaqueteController extends Controller {
 
                 $em = $this->getDoctrine()->getManager();
                 $paquete = $em->getRepository('PackagesBundle:Paquete')->find($id);
-                $paquete->setImagen($target_file);
+                $paquete->setImagen('/uploads/'.basename($_FILES["fileToUpload"]["name"]));
 
                 $em->persist($paquete);
                 $em->flush();

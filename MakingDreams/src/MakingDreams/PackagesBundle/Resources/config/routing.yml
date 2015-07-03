@@ -5,10 +5,6 @@ package_imagen:
 imagen:
     resource: "@PackagesBundle/Resources/config/routing/paquete.yml"
     prefix:   /imagen
-    
-packages_paquete:
-    resource: "@PackagesBundle/Resources/config/routing/paquete.yml"
-    prefix:   /paquete
 
 packages_homepage:
     path:     /

@@ -1,0 +1,46 @@
+{% extends '::base.html.twig' %}
+{% block menu %}
+    <li><a href="{{ path('paquete') }}" class="scroll-link">Paquetes</a></li>
+    <li><a href="{{ path('hotelrestaurante') }}" class="scroll-link">Restaurantes</a></li>
+    <li><a href="{{ path('hotelrestaurantehotel') }}" class="scroll-link">Hoteles</a></li>
+    <li><a href="{{ path('destino') }}" class="scroll-link">Destinos</a></li>
+    <li><a href="{{ path('usuario') }}" class="scroll-link">Usuarios</a></li>
+    {% endblock %}
+
+{% block body %} 
+    <section id="home">
+        <div class="banner-container">
+            <div class="container banner-content">
+                <div id="da-slider" class="da-slider">
+                    <div class="da-slide">
+                        <h2>Personalice sus paquetes</h2>
+                        <p>Cree y ajuste sus paquetes a sus gustos y necesidades</p>
+                        <div class="da-img"></div>
+                    </div>
+                    <div class="da-slide">
+                        <h2>Destinos asombrosos</h2>
+                        <p>Se encuentran destinos asombrosos donde poder ir...</p>
+                        <a href="{{ path('about_homepage') }}" class="da-link">Leer mas</a>
+                        <div class="da-img"></div>
+                    </div>
+                    <div class="da-slide">
+                        <h2>Su mejor opción</h2>
+                        <p>Somos su equipo especializado en area turística</p>
+                        <a href="{{ path('about_homepage') }}" class="da-link">Leer mas</a>
+                        <div class="da-img"></div>
+                    </div>  
+                </div>
+            </div>
+        </div>                 
+    </div>
+</section>                       
+<section id="introText">
+    <div class="container">
+        <div class="text-center">
+            <h1>¿Por qué viajar?</h1>
+            <p>Se viaja para romper con la rutina, para tomar distancia de lo cotidiano, para conocer y experimentar de primera mano nuevas culturas, para ver “ese” templo o monumento que tanto te ha hecho suspirar al admirarlo en fotos. También se viaja para conocer gente, para conocerse a una misma, para conocer los propios límites e incluso para desdibujarlos y trazarlos “un poquito más allá”. Se viaja por la adrenalina, por amor al viaje, por placer a lo desconocido y por miedo a lo desconocido.</p>
+        </div>
+    </div>
+
+</section>
+{% endblock %}

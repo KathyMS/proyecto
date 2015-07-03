@@ -1,5 +1,11 @@
 {% extends '::base.html.twig' %}
-
+{% block menu %}
+    <li><a href="{{ path('paquete') }}" class="scroll-link">Paquetes</a></li>
+    <li><a href="{{ path('hotelrestaurante') }}" class="scroll-link">Restaurantes</a></li>
+    <li><a href="{{ path('hotelrestaurantehotel') }}" class="scroll-link">Hoteles</a></li>
+    <li><a href="{{ path('destino') }}" class="scroll-link">Destinos</a></li>
+    <li><a href="{{ path('usuario') }}" class="scroll-link">Usuarios</a></li>
+    {% endblock %}
 {% block body -%}
     
     <div class="box col-md-12">
