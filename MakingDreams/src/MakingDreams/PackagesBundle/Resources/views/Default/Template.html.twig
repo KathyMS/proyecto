@@ -103,7 +103,7 @@
 </section>
 {% endblock %}
 {% block javascripts %}
-    <script  type="text/javascript">
+    <script stype="text/javascript">
         $(".link_change").click(function (event) {
             event.preventDefault();
             $("#change").load($(this).attr('href'));
@@ -114,7 +114,7 @@
             $("#nameSearch").val("");
             $("#change").load($(this).attr('href'));
         });
-
+        
         $("#button").click(function (event) {
             event.preventDefault();
             $.ajax({
@@ -138,6 +138,5 @@
                 }
             });
         });
-
     </script>
 {% endblock %}
