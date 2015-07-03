@@ -1,3 +1,7 @@
 about_homepage:
     path:     /
     defaults: { _controller: AboutBundle:Default:show }
+
+mapa_homepage:
+    path:     /mapa
+    defaults: { _controller: AboutBundle:Default:show_mapa }

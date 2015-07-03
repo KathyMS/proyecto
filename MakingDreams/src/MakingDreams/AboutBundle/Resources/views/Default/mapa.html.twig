@@ -1,0 +1,73 @@
+{% extends '::base.html.twig' %}
+{% block menu %}
+    {% if (app.session.get('user')) is not null %}
+        <li><a href="{{ path('packages_homepage') }}" class="scroll-link">Paquetes</a></li>
+        {% endif %}
+    <li><a href="{{ path('restaurants_homepage') }}" class="scroll-link">Restaurantes</a></li>
+    <li><a href="{{ path('hotels_homepage') }}" class="scroll-link">Hoteles</a></li>
+    <li><a href="{{ path('about_homepage') }}" class="scroll-link">Sobre nosotros</a></li>
+    <li><a href="{{ path('mapa_homepage') }}" class="scroll-link">Mapa del sitio</a></li>
+    <li class="active"><a href="{{ path('destinations_homepage') }}" class="scroll-link">Destinos</a></li>
+  
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Iniciar sesión<span class="caret"></span></a>
+        <ul class="dropdown-menu pull-right" role="menu">
+            <div>
+                <form id="signin" class="navbar-form navbar-right" role="form">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <input id="email" type="email" class="form-control" name="email" value="" placeholder="Email Address">                                        
+                    </div>
+                    <div>&nbsp;</div>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                        <input id="password" type="password" class="form-control" name="password" value="" placeholder="Password">                                        
+                    </div>
+                    <div>&nbsp;</div>
+                    <button type="submit" class="btn btn-primary">Ingresar</button>
+                </form>
+            </div>
+        </ul>
+    </li>
+    <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes">Temas<span class="caret"></span></a>
+        <ul class="dropdown-menu" aria-labelledby="Temas">
+            <li><a href="{{ path('configurations', {'type':'default', 'uri':'destinations_homepage'}) }}">Default</a></li>
+            <li class="divider"></li>
+            <li><a href="{{ path('configurations', {'type':'cyborg', 'uri':'destinations_homepage'}) }}">Cyborg</a></li>
+            <li><a href="{{ path('configurations', {'type':'journal', 'uri':'destinations_homepage'}) }}">Journal</a></li>
+            <li><a href="{{ path('configurations', {'type':'sandstone', 'uri':'destinations_homepage'}) }}">Sandstone</a></li>
+            <li><a href="{{ path('configurations', {'type':'slate', 'uri':'destinations_homepage'}) }}">Slate</a></li>
+        </ul>
+    </li>
+{% endblock %}
+{% block body %} 
+    <div class="container">
+        <div class="row">
+            <div class="heading text-center">
+                <!-- Heading -->
+                <h2>Mapa del Sitio</h2>
+
+            </div>
+        </div>
+        <div class="row mrgn30">
+            <div class="col-sm-7">
+                <div class="form-group">
+                    <h2>Usuario</h2>
+                    <label for="name">Paquetes</label><br>
+                    <a href="{{ path('packages_homepage') }}" >---Paquetes</a><br>
+                    <a href="{{ path('newpackage_page')    }}">---Crear paquete</a><br>
+                    <label for="name">Hoteles</label><br>
+                    <a href="{{ path('hotels_homepage') }}">---Hoteles</a><br>
+                    <label for="name">Destinos</label><br>
+                    <a href="{{ path('destinations_homepage') }}">---Destinos</a><br>
+                    <label for="name">Restaurantes</label><br>
+                    <a href="{{ path('restaurants_homepage') }}">---Restaurantes</a><br>
+                    <label for="name">Sobre Nosotros</label><br>
+                    <a href="{{ path('about_homepage') }}">---Nosotros</a><br>
+                </div>
+            </div>
+          
+        </div>
+    </div>
+{% endblock %}

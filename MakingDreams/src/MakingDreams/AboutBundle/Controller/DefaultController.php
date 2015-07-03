@@ -10,4 +10,9 @@ class DefaultController extends Controller
     {
         return $this->render('AboutBundle:Default:about.html.twig');
     }
+    
+     public function show_mapaAction()
+    {
+        return $this->render('AboutBundle:Default:mapa.html.twig');
+    }
 }
