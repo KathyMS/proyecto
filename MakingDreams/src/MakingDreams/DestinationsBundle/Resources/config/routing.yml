@@ -1,7 +1,11 @@
 destinations_homepage:
     path:     /
-    defaults: { _controller: DestinationsBundle:Default:showView }
+    defaults: { _controller: DestinationsBundle:Default:index }
     
 destiny_detail:
-    path:     /detail
+    path:     /{id}/detail
     defaults: { _controller: DestinationsBundle:Default:showDetail }
+    
+destiny_restaurant:
+    path:     /{provincia}/restaurant
+    defaults: { _controller: DestinationsBundle:Default:restaurants }
