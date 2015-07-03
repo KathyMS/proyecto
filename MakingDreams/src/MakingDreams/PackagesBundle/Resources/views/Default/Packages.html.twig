@@ -5,7 +5,8 @@
             <div class="col-md-3 col-sm-6">
                 <div class="cuadro_intro_hover " style="background-color:#cccccc;">
                     <p style="text-align:center;">
-                        <img src="" class="img-responsive" alt="">
+                        {% set imagen='' ~ paquete.imagen %}
+                        <img src="{{ asset(imagen) }}" class="img-responsive" alt="">
                     </p>
                     <div class="caption">
                         <div class="blur"></div>
