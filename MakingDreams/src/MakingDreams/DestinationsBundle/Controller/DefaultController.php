@@ -38,9 +38,28 @@ class DefaultController extends Controller {
                     'datos' => $datos,
         ));
     }
+     public function hotelsAction($provincia) {
 
+        include_once('myDBC.php');
+        $em = $this->getDoctrine()->getManager();
+
+        $entities = $em->getRepository('DestinationsBundle:Destino')->findAll();
+
+        $seleccion = new myDBC();
+        $datos = $seleccion->seleccionar_hotels_destino($provincia);
+
+        return $this->render('DestinationsBundle:Default:hotels.html.twig', array(
+                    'entities' => $entities,
+                    'datos' => $datos,
+        ));
+    }
+    
     public function showDetailAction($id) {
-        return $this->render('DestinationsBundle:Default:destinydetails.html.twig');
+         $em = $this->getDoctrine()->getManager();
+
+        $entity = $em->getRepository('DestinationsBundle:Destino')->find($id);
+        return $this->render('DestinationsBundle:Default:destinydetails.html.twig', array(
+                    'entity' => $entity));
     }
 
 }

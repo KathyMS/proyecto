@@ -9,3 +9,7 @@ destiny_detail:
 destiny_restaurant:
     path:     /{provincia}/restaurant
     defaults: { _controller: DestinationsBundle:Default:restaurants }
+    
+destiny_hotels:
+    path:     /{provincia}/hotels
+    defaults: { _controller: DestinationsBundle:Default:hotels }

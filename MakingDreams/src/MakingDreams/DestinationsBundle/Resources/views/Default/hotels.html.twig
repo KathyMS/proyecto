@@ -3,47 +3,18 @@
     {% if (app.session.get('user')) is not null %}
         <li><a href="{{ path('packages_homepage') }}" class="scroll-link">Paquetes</a></li>
         {% endif %}
-    <li><a href="{{ path('restaurants_homepage') }}" class="scroll-link">Restaurantes</a></li>
+    <li class="active"><a href="{{ path('restaurants_homepage') }}" class="scroll-link">Restaurantes</a></li>
     <li><a href="{{ path('hotels_homepage') }}" class="scroll-link">Hoteles</a></li>
-    <li class="active"><a href="{{ path('destinations_homepage') }}" class="scroll-link">Destinos</a></li>
+    <li><a href="{{ path('destinations_homepage') }}" class="scroll-link">Destinos</a></li>
     <li><a href="{{ path('about_homepage') }}" class="scroll-link">Sobre nosotros</a></li>
-    <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Iniciar sesión<span class="caret"></span></a>
-        <ul class="dropdown-menu pull-right" role="menu">
-            <div>
-                <form id="signin" class="navbar-form navbar-right" role="form">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        <input id="email" type="email" class="form-control" name="email" value="" placeholder="Email Address">                                        
-                    </div>
-                    <div>&nbsp;</div>
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                        <input id="password" type="password" class="form-control" name="password" value="" placeholder="Password">                                        
-                    </div>
-                    <div>&nbsp;</div>
-                    <button type="submit" class="btn btn-primary">Ingresar</button>
-                </form>
-            </div>
-        </ul>
-    </li>
-    <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes">Temas<span class="caret"></span></a>
-        <ul class="dropdown-menu" aria-labelledby="Temas">
-            <li><a href="{{ path('configurations', {'type':'default', 'uri':'destinations_homepage'}) }}">Default</a></li>
-            <li class="divider"></li>
-            <li><a href="{{ path('configurations', {'type':'cyborg', 'uri':'destinations_homepage'}) }}">Cyborg</a></li>
-            <li><a href="{{ path('configurations', {'type':'journal', 'uri':'destinations_homepage'}) }}">Journal</a></li>
-            <li><a href="{{ path('configurations', {'type':'sandstone', 'uri':'destinations_homepage'}) }}">Sandstone</a></li>
-            <li><a href="{{ path('configurations', {'type':'slate', 'uri':'destinations_homepage'}) }}">Slate</a></li>
-        </ul>
-    </li>
-{% endblock %}
+
+    {% endblock %}
 
 {% block body %} 
-    <img src="{{asset('resourses/images/destiny.jpg')}}" class="img-responsive" alt="" style="position:absolute;visibility:visible">
 
-    <section id="packages" class="secPad">
+    <img src="{{asset('resourses/images/hotel.jpg')}}" class="img-responsive" alt="" style="position:absolute;visibility:visible">
+
+    <section id="hotels" class="secPad">
         <div class="container container-fluid">
             <div class="row">
                 <div class="col-sm-3 hidden-xs">
@@ -52,8 +23,8 @@
                         <ul class="list-group">
                             <li class="list-group-item">
                                 <span class="badge">1</span>
-                                <h4 class="list-group-item-heading">Mis destinos</h4>
-                                <a href="" class="list-group-item">San Jose</a>
+                                <h4 class="list-group-item-heading">Mis hoteles</h4>
+                                <a href="{{ path('package_page') }}" class="list-group-item">Hotel riu</a>
                                 <a href="" class="list-group-item">Nuevo</a>
                             </li>
                         </ul>
@@ -66,8 +37,8 @@
                         <div class="heading">
                             <!-- Heading -->
                             <div class="text-center">
-                                <h2>Destinos Disponibles</h2>
-                                <p style="background-color: #000000">Escoga su destino</p>
+                                <h2>Hoteles Disponibles</h2>
+                                <p style="background-color: #000000">Escoga su Hotel</p>
                             </div>
                             <div class="well container">
                                 <div class="col-md-9 pull-left">
@@ -79,7 +50,7 @@
                                                     <form id="" class="navbar-form navbar-right" role="form">
                                                         <fieldset>
                                                             <div class="control-group">
-                                                                <label class="control-label" for="email">Lugar</label>
+                                                                <label class="control-label" for="email">Hotel</label>
                                                                 <div class="controls row-fluid">
                                                                     <input class="form-control" type="text">
                                                                 </div>
@@ -114,41 +85,62 @@
                                     </select>
                                 </div>
                             </div>
-
-
                             <div class="row">
 
                                 {% for entity in datos %}
-                                    
-                                    {% set foo ='' ~ entity.imagen1 %} 
-                                    
-                                    <div class="col-md-3 col-sm-6">
-                                        <div class="cuadro_intro_hover " style="background-color:#cccccc;">
-                                            <p style="text-align:center;">
-                                                <img src="{{asset(foo)}}" class="img-responsive" alt="">
-                                            </p>
-                                            <div class="caption">
-                                                <div class="blur"></div>
-                                                <div class="caption-text">
-                                                    <h3>{{entity.nombre}}</h3>
-                                                    <p>{{entity.resenaHistorica}}</p>
-                                                    <a class=" btn btn-default" href="{{ path('destiny_detail',  { 'id': entity.id }) }}"><span class="glyphicon glyphicon-plus"> Reseña</span></a>
+                                    {% set foo ='' ~ entity.imagen2 %} 
+                                       
+
+                                        <div class="col-md-3 col-sm-6">
+                                            <div class="cuadro_intro_hover " style="background-color:#cccccc;">
+                                                <p style="text-align:center;" >
+
+                                                    <img src="{{asset(foo)}}" class="img-responsive" alt="">
+                                                </p>
+                                                <div class="caption" style="border-color: #FF0; border-width: thick">
+                                                    <div class="blur" ></div>
+                                                    <div class="caption-text">
+                                                        <h3>{{ entity.nombre }}</h3>
+                                                        <p>{{ entity.servicios }}</p>
+                                                        <a class=" btn btn-default" href="{{ path('hotel_page', { 'id': entity.idImagenesRestHot }) }}"><span class="glyphicon glyphicon-plus"> Ver</span></a>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <a class=" btn btn-default" href="{{ path('destiny_restaurant', { 'provincia': entity.provincia}) }}"><span class="glyphicon glyphicon-plus"> Restaurantes</span></a>
-                                        <a class=" btn btn-default" href="{{ path('destiny_hotels' , { 'provincia': entity.provincia}) }}"><span class="glyphicon glyphicon-plus"> Hoteles</span></a>
 
-                                    </div>
+                                        </div>                                    
+                                    
 
                                 {% endfor %}
+
+
+
+
+
+
                                 <!--Content end-->
                             </div>
+
+
+
+
+                            <!--Content end-->
+
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+
+
+
+
+
+
+
+
+
 
 {% endblock %}

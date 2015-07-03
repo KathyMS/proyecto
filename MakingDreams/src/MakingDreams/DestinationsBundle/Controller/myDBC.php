@@ -62,11 +62,34 @@ class myDBC {
 
     public function seleccionar_restaurants_destino($provincia) {
 
-        $q = 'SELECT hotel_restaurante.id, idImagenes_Rest_Hot as idImagenesRestHot,  
-                imagen1,imagen2,imagen3,
-                hotel_restaurante.nombre, hotel_restaurante.servicios
+        $q = "SELECT hotel_restaurante.id, idImagenes_Rest_Hot as idImagenesRestHot,imagen1,imagen2,imagen3,hotel_restaurante.nombre, hotel_restaurante.servicios
                 FROM making_dreams.imagenes_rest_hot, making_dreams.hotel_restaurante
-                where provincia like ' . $provincia . ' and hotel_restaurante.id = imagenes_rest_hot.idImagenes_Rest_Hot;';
+                where hotel_restaurante.provincia like '%$provincia%' and hotel_restaurante.id = imagenes_rest_hot.idImagenes_Rest_Hot and hotel_restaurante.tipo= 1";
+
+        $result = $this->mysqli->query($q);
+
+        //Array asociativo que contendrá los datos
+        $valores = array();
+
+        if ($result->num_rows == 0) {
+            echo'<script type="text/javascript">
+                alert("ningun registro");
+                </script>';
+        } else {
+
+            while ($row = mysqli_fetch_assoc($result)) {
+                //Se crea un arreglo asociativo
+                array_push($valores, $row);
+            }
+        }
+        //Regresa array asociativo
+        return $valores;
+    }
+     public function seleccionar_hotels_destino($provincia) {
+
+        $q = "SELECT hotel_restaurante.id, idImagenes_Rest_Hot as idImagenesRestHot,imagen1,imagen2,imagen3,hotel_restaurante.nombre, hotel_restaurante.servicios
+                FROM making_dreams.imagenes_rest_hot, making_dreams.hotel_restaurante
+                where hotel_restaurante.provincia like '%$provincia%' and hotel_restaurante.id = imagenes_rest_hot.idImagenes_Rest_Hot and hotel_restaurante.tipo= 2";
 
         $result = $this->mysqli->query($q);
 
