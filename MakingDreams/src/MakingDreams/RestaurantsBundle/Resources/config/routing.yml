@@ -4,10 +4,10 @@ imagenRest:
     
 restaurants_homepage:
     path:     /
-    defaults: { _controller: RestaurantsBundle:Default:showView }
+    defaults: { _controller: RestaurantsBundle:Default:index }
     
 restaurants_detail:
-    path:     /detail
+    path:     /{id}/detail
     defaults: { _controller: RestaurantsBundle:Default:showRest }
     
 restaurants_admin:

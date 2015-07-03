@@ -2,13 +2,13 @@
 {% block menu %}
     {% if (app.session.get('user')) is not null %}
         <li><a href="{{ path('packages_homepage') }}" class="scroll-link">Paquetes</a></li>
-    {% endif %}
+        {% endif %}
     <li class="active"><a href="{{ path('restaurants_homepage') }}" class="scroll-link">Restaurantes</a></li>
     <li><a href="{{ path('hotels_homepage') }}" class="scroll-link">Hoteles</a></li>
     <li><a href="{{ path('destinations_homepage') }}" class="scroll-link">Destinos</a></li>
     <li><a href="{{ path('about_homepage') }}" class="scroll-link">Sobre nosotros</a></li>
-    <li><a href="{{ path('restaurants_admin') }}" class="scroll-link">Pestaña Administrador</a></li>
-{% endblock %}
+
+    {% endblock %}
 
 {% block body %} 
 
@@ -86,127 +86,45 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-3 col-sm-6">
-                                    <div class="cuadro_intro_hover " style="background-color:#cccccc;">
-                                        <p style="text-align:center;" >
 
-                                            <img src="{{asset('resourses/images/restaurantes/naans.jpg')}}" class="img-responsive" alt="">
-                                        </p>
-                                        <div class="caption" style="border-color: #FF0; border-width: thick">
-                                            <div class="blur" ></div>
-                                            <div class="caption-text">
-                                                <h3>Naans</h3>
-                                                <p>Comida india original hecha por chefs nativos 5. Número 1 en Trip Advisor.</p>
-                                                <a class=" btn btn-default" href="{{ path('restaurants_detail') }}"><span class="glyphicon glyphicon-plus"> Ver</span></a>
+                                {% for entity in datos %}
+                                    {% set foo ='' ~ entity.imagen2 %} 
+                                       
+
+                                        <div class="col-md-3 col-sm-6">
+                                            <div class="cuadro_intro_hover " style="background-color:#cccccc;">
+                                                <p style="text-align:center;" >
+
+                                                    <img src="{{asset(foo)}}" class="img-responsive" alt="">
+                                                </p>
+                                                <div class="caption" style="border-color: #FF0; border-width: thick">
+                                                    <div class="blur" ></div>
+                                                    <div class="caption-text">
+                                                        <h3>{{ entity.nombre }}</h3>
+                                                        <p>{{ entity.servicios }}</p>
+                                                        <a class=" btn btn-default" href="{{ path('restaurants_detail', { 'id': entity.idImagenesRestHot }) }}"><span class="glyphicon glyphicon-plus"> Ver</span></a>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </div>
 
-                                </div>
-                                            
-                                            
-                                                     <div class="col-md-3 col-sm-6">
-                                    <div class="cuadro_intro_hover " style="background-color:#cccccc;">
-                                        <p style="text-align:center;" >
+                                        </div>                                    
+                                    
 
-                                            <img src="{{asset('resourses/images/restaurantes/alquimia1.jpg')}}" class="img-responsive" alt="">
-                                        </p>
-                                        <div class="caption" style="border-color: #FF0; border-width: thick">
-                                            <div class="blur" ></div>
-                                            <div class="caption-text">
-                                                <h3>Alquimia</h3>
-                                                <p>Comida india original hecha por chefs nativos 5. Número 1 en Trip Advisor.</p>
-                                                <a class=" btn btn-default" href="{{ path('restaurants_detail') }}"><span class="glyphicon glyphicon-plus"> Ver</span></a>
-                                            </div>
-                                        </div>
-                                    </div>
+                                {% endfor %}
 
-                                </div>
-                                                                                                 <div class="col-md-3 col-sm-6">
-                                    <div class="cuadro_intro_hover " style="background-color:#cccccc;">
-                                        <p style="text-align:center;" >
 
-                                            <img src="{{asset('resourses/images/restaurantes/barCoto.jpg')}}" class="img-responsive" alt="">
-                                        </p>
-                                        <div class="caption" style="border-color: #FF0; border-width: thick">
-                                            <div class="blur" ></div>
-                                            <div class="caption-text">
-                                                <h3>Coto</h3>
-                                                <p>Comida india original hecha por chefs nativos 5. Número 1 en Trip Advisor.</p>
-                                                <a class=" btn btn-default" href="{{ path('restaurants_detail') }}"><span class="glyphicon glyphicon-plus"> Ver</span></a>
-                                            </div>
-                                        </div>
-                                    </div>
 
-                                </div>
-                                            
-                                            
-                                                                                                 <div class="col-md-3 col-sm-6">
-                                    <div class="cuadro_intro_hover " style="background-color:#cccccc;">
-                                        <p style="text-align:center;" >
 
-                                            <img src="{{asset('resourses/images/restaurantes/chirraca.jpg')}}" class="img-responsive" alt="">
-                                        </p>
-                                        <div class="caption" style="border-color: #FF0; border-width: thick">
-                                            <div class="blur" ></div>
-                                            <div class="caption-text">
-                                                <h3>Chirraca</h3>
-                                                <p>Comida india original hecha por chefs nativos 5. Número 1 en Trip Advisor.</p>
-                                                <a class=" btn btn-default" href="{{ path('restaurants_detail') }}"><span class="glyphicon glyphicon-plus"> Ver</span></a>
-                                            </div>
-                                        </div>
-                                    </div>
 
-                                </div>
-                                            
-                                                                                                 <div class="col-md-3 col-sm-6">
-                                    <div class="cuadro_intro_hover " style="background-color:#cccccc;">
-                                        <p style="text-align:center;" >
-
-                                            <img src="{{asset('resourses/images/restaurantes/lamasia2.jpg')}}" class="img-responsive" alt="">
-                                        </p>
-                                        <div class="caption" style="border-color: #FF0; border-width: thick">
-                                            <div class="blur" ></div>
-                                            <div class="caption-text">
-                                                <h3>Lamasia</h3>
-                                                <p>Comida india original hecha por chefs nativos 5. Número 1 en Trip Advisor.</p>
-                                                <a class=" btn btn-default" href="{{ path('restaurants_detail') }}"><span class="glyphicon glyphicon-plus"> Ver</span></a>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                            
-                                                                                                 <div class="col-md-3 col-sm-6">
-                                    <div class="cuadro_intro_hover " style="background-color:#cccccc;">
-                                        <p style="text-align:center;" >
-
-                                            <img src="{{asset('resourses/images/restaurantes/lukas.jpg')}}" class="img-responsive" alt="">
-                                        </p>
-                                        <div class="caption" style="border-color: #FF0; border-width: thick">
-                                            <div class="blur" ></div>
-                                            <div class="caption-text">
-                                                <h3>Lukas</h3>
-                                                <p>Comida india original hecha por chefs nativos 5. Número 1 en Trip Advisor.</p>
-                                                <a class=" btn btn-default" href="{{ path('restaurants_detail') }}"><span class="glyphicon glyphicon-plus"> Ver</span></a>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                            
-                                            
-                                            
-                                            
 
                                 <!--Content end-->
                             </div>
 
-                           
-                       
 
-                                <!--Content end-->
-                           
+
+
+                            <!--Content end-->
+
 
                         </div>
                     </div>

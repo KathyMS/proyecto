@@ -13,33 +13,104 @@
 
     <section class="container">
 
-        <div>
-            <h2 style="position:absolute; top:100px; left:500px; visibility:visible;">Detalles de Restaurante</h2>
-            <h2 style="position:absolute; top:540px; left:500px; visibility:visible;">Galeria</h2>
-            <div STYLE="position:absolute; top:200px; left:200px; visibility:visible;"> 
 
-                <img name="restMostrado" src="{{asset('resourses/images/restaurantes/naans.jpg')}}" class="sombra" alt="" style="border:3px solid gray;" />
-                <marquee width="500" style="position:absolute; top:400px; left:300px;" scrolldelay="1" scrollamount="6" direction="left" loop="infinite" onmouseout="this.start()"
-                         onmouseover="this.stop()"><a href="URL que Redirecciona al tema 1" target="_blank"><img
-                            title="Titulo de la entrada" alt="Titulo de la entrada" 
-                            src="{{asset('resourses/images/restaurantes/naans.jpg')}}"
-                            height ="80px" width="80px"/></a><a href="URL que Redirecciona al tema 2" 
-                                                        target="_blank"><img title="Titulo de la entrada" alt="Titulo de la entrada"  
-                                         src="{{asset('resourses/images/restaurantes/naans.jpg')}}" 
-                                         height ="80px" width="80px" /></a></marquee>
+
+
+
+            <h2 style="position:absolute; top:130px; left:500px; visibility:visible;">Detalles de Restaurante</h2>
+            <h1 style="position:absolute; top:500px; left:520px; visibility:visible;">Visita mas restaurantes..</h1>
+
+            {% for dato in imagenes %}
+                {% set foo ='' ~ dato.imagen1 %} 
+                {% set foo2 ='' ~ dato.imagen2 %} 
+                {% set foo3 ='' ~ dato.imagen3 %} 
+                <img src="{{asset(foo)}}" class="img-responsive" alt=""
+                     style="position:absolute; top:200px; left:100px; visibility:visible;">
+
+                <img src="{{asset(foo2)}}" class="img-responsive" alt=""
+                     style="position:absolute; top:320px; left:150px; visibility:visible;">
+
+                <img src="{{asset(foo3)}}" class="img-responsive" alt=""
+                     style="position:absolute; top:180px; left:250px; visibility:visible;">
+
+            {% endfor %}
+
+            <div class="box-content">
+
+                <table style="position:absolute; top:200px; left:500px; visibility:visible;" border="4" frame="void" bordercolor="#424242">
+                    <tbody>
+
+                        <tr>
+                            <th style="width: 250px;"><font size=5 face="roman">Nombre</font></th>
+                            <td><font size=4 face="roman">{{ entity.nombre }}</font></font></td>
+                        </tr>
+                        <tr>
+                            <th style="width: 250px;"><font size=5 face="roman">Direccion</font></th>
+                            <td style="width: 300px;"><font size=4 face="roman">{{ entity.direccion }}</font></font></td>
+                        </tr>
+                        <tr>
+                            <th style="width: 250px;"><font size=5 face="roman">Servicios</font></th>
+                            <td style="width: 300px;"><font size=4 face="roman">{{ entity.servicios }}</font></td>
+                        </tr>
+                        <tr>
+                            <th style="width: 250px;"><font size=5 face="roman">Tipo</font></th>
+                                {%if entity.tipo== 1%}
+                                <td style="width: 300px;"><font size=4 face="roman"> Restaurante </font></td>
+                                {%endif%}
+                                {%if entity.tipo== 2%}
+                                <td style="width: 300px;"><font size=4 face="roman"> Hotel </font></td>
+                                {%endif%}
+
+                        </tr>
+                        <tr>
+                            <th style="width: 250px;"><font size=5 face="roman">Direccion en mapa</font></th>
+                            <td style="width: 300px;"><font size=4 face="roman">{{ entity.direccionMapa }}</font></td>
+                        </tr>
+                        <tr>
+                            <th style="width: 250px;"><font size=5 face="roman">Provincia</font></th>
+                            <td style="width: 300px;"><font size=4 face="roman">{{ entity.provincia }}</font></td>
+                        </tr>
+
+                    </tbody>
+                </table>
             </div>
+
+
+
+
+
+
+        </section>
+        <div STYLE="position:absolute; top:200px; left:200px; visibility:visible;"> 
+
+
+            <marquee width="500" style="position:absolute; top:400px; left:300px;"
+                     scrolldelay="1" scrollamount="6" direction="left" loop="infinite"
+                     onmouseout="this.start()"
+                     onmouseover="this.stop()">
+
+                {% for dato in datos %}
+
+                    {% set foo ='' ~ dato.imagen1 %} 
+                    <a href="{{ path('restaurants_detail', { 'id': dato.idImagenesRestHot }) }}" target="_blank">
+                        <img title="Titulo de la entrada1" alt="{{dato.imagen1}}" 
+                             src="{{asset(foo)}}"
+                             height ="80px" width="80px"/></a>
+
+                {% endfor %}
+
+                <a href="URL que Redirecciona al tema 2" 
+                   target="_blank"><img title="Titulo de la entrada" alt="Titulo de la entrada"  
+                                     src="{{asset('resourses/images/restaurantes/rufino.jpg')}}" 
+                                     height ="80px" width="80px" />
+
+
+                </a></marquee>
         </div>
 
 
-    </section>
 
-
-
-
-
-
-
-
-
+    </body>
+</html>
 
 {% endblock %}

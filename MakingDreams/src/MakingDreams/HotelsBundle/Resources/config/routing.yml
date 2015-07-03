@@ -1,7 +1,7 @@
 hotels_homepage:
     path:     /
-    defaults: { _controller: HotelsBundle:Default:showView }
+    defaults: { _controller: HotelsBundle:Default:index }
 
 hotel_page:
-    path:     /hotel
+    path:     /{id}/hotel
     defaults: { _controller: HotelsBundle:Default:showHotel }

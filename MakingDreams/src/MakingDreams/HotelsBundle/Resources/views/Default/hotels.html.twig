@@ -84,134 +84,31 @@
                                 </div>
                             </div>
                             <div class="row">
+                                {% for entity in datos %}
+                                   
+                                       {% set foo ='' ~ entity.imagen2 %} 
+                                       
+                                
                                 <div class="col-md-3 col-sm-6">
                                     <div class="cuadro_intro_hover " style="background-color:#cccccc;">
                                         <p style="text-align:center;">
-                                            <img src="{{asset('resourses/images/riu.jpg')}}" class="img-responsive" alt="">
+                                            <img src="{{asset(foo)}}" class="img-responsive" alt="">
                                         </p>
                                         <div class="caption">
                                             <div class="blur"></div>
                                             <div class="caption-text">
-                                                <h3>Hotel Riu</h3>
-                                                <p>Este hotel esta disponible para todo publico</p>
-                                                <a class=" btn btn-default" href="{{ path('hotel_page') }}"><span class="glyphicon glyphicon-plus"> Ver</span></a>
+                                                <h3>{{ entity.nombre }}</h3>
+                                                        <p>{{ entity.servicios }}</p>
+                                                      
+                                                <a class=" btn btn-default" href="{{ path('hotel_page', { 'id': entity.idImagenesRestHot }) }}"><span class="glyphicon glyphicon-plus"> Ver</span></a>
                                             </div>
                                         </div>
                                     </div>
 
                                 </div>
-                                <div class="col-md-3 col-sm-6">
-                                    <div class="cuadro_intro_hover " style="background-color:#cccccc;">
-                                        <p style="text-align:center;">
-                                            <img src="{{asset('resourses/images/tambor.jpg')}}" class="img-responsive" alt="">
-                                        </p>
-                                        <div class="caption">
-                                            <div class="blur"></div>
-                                            <div class="caption-text">
-                                                <h3>Hotel Barcelo Tambor</h3>
-                                                <p>Este hotel esta disponible para todo publico</p>
-                                                <a class=" btn btn-default" href="{{ path('hotel_page') }}"><span class="glyphicon glyphicon-plus"> Ver</span></a>
-                                            </div>
-                                        </div>
-                                    </div>
+                                  
 
-                                </div>
-                                <div class="col-md-3 col-sm-6">
-                                    <div class="cuadro_intro_hover " style="background-color:#cccccc;">
-                                        <p style="text-align:center;">
-                                            <img src="{{asset('resourses/images/cartagojpg.jpg')}}" class="img-responsive" alt="">
-                                        </p>
-                                        <div class="caption">
-                                            <div class="blur"></div>
-                                            <div class="caption-text">
-                                                <h3>Hotel GrandPas</h3>
-                                                <p>Este hotel esta disponible para todo publico</p>
-                                                <a class=" btn btn-default" href="{{ path('hotel_page') }}"><span class="glyphicon glyphicon-plus"> Ver</span></a>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <div class="col-md-3 col-sm-6">
-                                    <div class="cuadro_intro_hover " style="background-color:#cccccc;">
-                                        <p style="text-align:center;">
-                                            <img src="{{asset('resourses/images/marriot.jpg')}}" class="img-responsive" alt="">
-                                        </p>
-                                        <div class="caption">
-                                            <div class="blur"></div>
-                                            <div class="caption-text">
-                                                <h3>Hotel Marriot </h3>
-                                                <p>Este hotel esta disponible para todo publico</p>
-                                                <a class=" btn btn-default" href="{{ path('hotel_page') }}"><span class="glyphicon glyphicon-plus"> Ver</span></a>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <div class="col-md-3 col-sm-6">
-                                    <div class="cuadro_intro_hover " style="background-color:#cccccc;">
-                                        <p style="text-align:center;">
-                                            <img src="{{asset('resourses/images/gran.jpg')}}" class="img-responsive" alt="">
-                                        </p>
-                                        <div class="caption">
-                                            <div class="blur"></div>
-                                            <div class="caption-text">
-                                                <h3>Hotel Gran Hotel</h3>
-                                                <p>Este hotel esta disponible para todo publico</p>
-                                                <a class=" btn btn-default" href="{{ path('hotel_page') }}"><span class="glyphicon glyphicon-plus"> Ver</span></a>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <div class="col-md-3 col-sm-6">
-                                    <div class="cuadro_intro_hover " style="background-color:#cccccc;">
-                                        <p style="text-align:center;">
-                                            <img src="{{asset('resourses/images/cartagojpg.jpg')}}" class="img-responsive" alt="">
-                                        </p>
-                                        <div class="caption">
-                                            <div class="blur"></div>
-                                            <div class="caption-text">
-                                                <h3>Hotel Grand Pas</h3>
-                                                <p>Este hotel esta disponible para todo publico</p>
-                                                <a class=" btn btn-default" href="{{ path('hotel_page') }}"><span class="glyphicon glyphicon-plus"> Ver</span></a>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <div class="col-md-3 col-sm-6">
-                                    <div class="cuadro_intro_hover " style="background-color:#cccccc;">
-                                        <p style="text-align:center;">
-                                            <img src="{{asset('resourses/images/riu.jpg')}}" class="img-responsive" alt="">
-                                        </p>
-                                        <div class="caption">
-                                            <div class="blur"></div>
-                                            <div class="caption-text">
-                                                <h3>Hotel Riu</h3>
-                                                <p>Este hotel esta disponible para todo publico</p>
-                                                <a class=" btn btn-default" href="{{ path('hotel_page') }}"><span class="glyphicon glyphicon-plus"> Ver</span></a>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <div class="col-md-3 col-sm-6">
-                                    <div class="cuadro_intro_hover " style="background-color:#cccccc;">
-                                        <p style="text-align:center;">
-                                            <img src="{{asset('resourses/images/marriot.jpg')}}" class="img-responsive" alt="">
-                                        </p>
-                                        <div class="caption">
-                                            <div class="blur"></div>
-                                            <div class="caption-text">
-                                                <h3>Hotel Marriot</h3>
-                                                <p>Este hotel esta disponible para todo publico</p>
-                                                <a class=" btn btn-default" href="{{ path('hotel_page') }}"><span class="glyphicon glyphicon-plus"> Ver</span></a>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
+                                {% endfor %}
                                 <!--Content end-->
                             </div>
                         </div>
