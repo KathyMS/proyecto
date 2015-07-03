@@ -13,6 +13,9 @@
                 <div class="col-sm-3 hidden-xs">
                     <!--Affix start-->
                     <div data-spy="affix" class="col-sm-2" data-offset-top="0">
+                        <div class="list-group">
+                            <a href="{{ path('packages_homepage') }}" class="list-group-item all_package">Todos los paquetes</a>
+                        </div>
                         <ul class="list-group">
                             <li class="list-group-item">
                                 {% set size = paquetesPorUsuario|length %}
@@ -73,7 +76,7 @@
                                             </ul>
                                         </div>
                                         <form method="post" id="search" class="input-group col-xs-12">
-                                            <input name="nameSearch" type="text" class="form-control " placeholder="Nombre">
+                                            <input id="nameSearch" name="nameSearch" type="text" class="form-control " placeholder="Nombre">
                                             <span class="input-group-btn">
                                                 <button id="button" class="btn btn-default" type="button">Buscar</button>
                                             </span>
@@ -100,9 +103,15 @@
 </section>
 {% endblock %}
 {% block javascripts %}
-    <script type="text/javascript">
+    <script  type="text/javascript">
         $(".link_change").click(function (event) {
             event.preventDefault();
+            $("#change").load($(this).attr('href'));
+        });
+
+        $(".all_package").click(function (event) {
+            event.preventDefault();
+            $("#nameSearch").val("");
             $("#change").load($(this).attr('href'));
         });
 
@@ -114,9 +123,6 @@
                 data: $("#search").serialize(),
                 success: function (response) {
                     $("#change").html(response);
-                    console.log(uri);
-                },
-                error: function (error) {
                 }
             });
         });
@@ -129,10 +135,9 @@
                 data: {'option': option},
                 success: function (response) {
                     $("#change").html(response);
-                },
-                error: function (error) {
                 }
             });
         });
+
     </script>
 {% endblock %}

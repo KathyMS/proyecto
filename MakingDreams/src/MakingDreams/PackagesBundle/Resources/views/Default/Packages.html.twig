@@ -5,7 +5,7 @@
             <div class="col-md-3 col-sm-6">
                 <div class="cuadro_intro_hover " style="background-color:#cccccc;">
                     <p style="text-align:center;">
-                        <img src="{{asset('resourses/images/pic/pic-1.jpg')}}" class="img-responsive" alt="">
+                        <img src="" class="img-responsive" alt="">
                     </p>
                     <div class="caption">
                         <div class="blur"></div>
@@ -26,17 +26,17 @@
                 {% for i in 1.. totalPage %}
                     {%if loop.first and page!=1 %}
                         <li>
-                            <a href="{{ path('packages_homepage',{'page':page-1}) }}" ><<</a>
+                            <a href="{{ path('packages_search',{'page':page-1}) }}" class="link_change" ><<</a>
                         </li>
                     {%endif%}
 
                     <li {%if page==loop.index %} class="active" {%endif%}>
-                        <a href="{{ path('packages_homepage',{'page':loop.index}) }}">{{loop.index}}</a>
+                        <a href="{{ path('packages_search',{'page':loop.index}) }}" class="link_change" >{{loop.index}}</a>
                     </li>
 
                     {%if loop.last and page!=totalPage %}
                         <li>
-                            <a href="{{ path('packages_homepage',{'page':page+1}) }}">>></a>
+                            <a href="{{ path('packages_search',{'page':page+1}) }}" class="link_change" >>></a>
                         </li>
                     {%endif%}
                 {%endfor%}
